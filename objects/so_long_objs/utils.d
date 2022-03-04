@@ -1,5 +1,6 @@
-objects/so_long_objs/map_checker.o: source/map_checker.c \
-  source/../includes/map.h source/../includes/get_next_line.h \
+objects/so_long_objs/utils.o: source/utils.c source/../includes/game.h \
+  source/../includes/../minilibx_opengl/mlx.h \
+  source/../includes/../libft/libft.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/stdlib.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/Availability.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/AvailabilityInternal.h \
@@ -63,6 +64,7 @@ objects/so_long_objs/map_checker.o: source/map_checker.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/malloc/_malloc.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/sys/_types/_dev_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/sys/_types/_mode_t.h \
+  source/../includes/map.h source/../includes/get_next_line.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/stdio.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/_stdio.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/sys/_types/_va_list.h \
@@ -124,5 +126,4 @@ objects/so_long_objs/map_checker.o: source/map_checker.c \
   /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/sys/_pthread/_pthread_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/sys/_pthread/_pthread_key_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/sys/_types/_fsblkcnt_t.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/sys/_types/_fsfilcnt_t.h \
-  source/../includes/../libft/libft.h
+  /Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/sys/_types/_fsfilcnt_t.h

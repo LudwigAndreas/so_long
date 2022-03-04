@@ -6,6 +6,7 @@
 # include "map.h"
 
 # define SIZE 32
+# define LOGO_SIZE 80
 
 /*Структура для описания позиции*/
 typedef struct	s_pos
@@ -42,7 +43,7 @@ typedef struct	s_legal_act
 	int	S;
 	int E;
 	int	W;
-};
+}				t_legal_act;
 
 /*Структура хранения данных об объекте*/
 typedef struct	s_entity
@@ -51,7 +52,7 @@ typedef struct	s_entity
 	t_pos			to_go;
 	int				dir;
 	int				move;
-	t_entity_sprite	sprite;
+	t_en_sprites	sprite;
 	t_legal_act		legal;
 	struct s_entity	*next;
 }				t_entity;

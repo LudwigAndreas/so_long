@@ -3,34 +3,27 @@
 char	**ft_duplicate_matrix(char **map)
 {
 	char	**out;
-	char	*line;
 	int		i;
 	int		j;
+	int		x;
+
 	if (map == NULL)
 		return (NULL);
 	i = 0;
 	while (map[i])
 	{
+		j = 0;
 		while (map[i][j])
 			j++;
 		i++;
 	}
 	out = (char **) malloc(sizeof(char *) * (i + 1));
-	int x = 0;
-	int y = 0;
+	x = 0;
 	while (map[x])
 	{
-		out[x] = (char *) malloc(sizeof(char) * (j + 1));
-		while (map[x][y])
-		{
-			out[x][y] = map[x][y];
-			y++;
-		}
+		out[x] = ft_strdup(map[x]);
 		x++;
 	}
-	for(int k = 0; k < i; k++)
-	{
-		ft_putendl_fd(out[k], 1);
-	}
+	out[x] = NULL;
 	return (out);
 }

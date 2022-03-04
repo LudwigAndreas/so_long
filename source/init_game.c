@@ -29,9 +29,8 @@ void	init_game(t_params *params, char **map)
 	game.params = params;
 	game.length = params->length;
 	game.width = params->width;
-	game.all_coins = params->coins;
-	game.map = ft_matrix_dup(map);
 	game.mlx_id = mlx_init();
-	game.window = mlx_new_window(game.mlx_id,params->length * SIZE, params->width * SIZE + LOGO_SIZE, "Pacman");
+	game.window = mlx_new_window(game.mlx_id,params->width * SIZE, params->length * SIZE + LOGO_SIZE, "Pacman");
 	ft_new_game(&game, map, params);
+	mlx_loop(game.mlx_id);
 }

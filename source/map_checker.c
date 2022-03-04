@@ -48,6 +48,7 @@ char	*map_to_line(int fd, t_params *params)
 	char	*out;
 
 	out = malloc(sizeof(char ));
+	out[0] = 0;
 	while (1)
 	{
 		line = get_next_line(fd);
