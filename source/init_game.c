@@ -3,10 +3,22 @@
 #include <mlx.h>
 #include "stdio.h"
 
+
+
 /*Функция инициирует игру*/
 void	ft_new_game(t_game *game, char **map, t_params *params)
 {
-
+	game->frames = 1;
+	game->all_coins = params->coins;
+	game->dead_ind = 0;
+	game->panic_ind = 0;
+	game->moves = 0;
+	game->redraw = 0;
+	game->sprites = NULL;
+	game->pac = NULL;
+	game->gh = NULL;
+//	game->sprites = init_sprites();
+	game->map = ft_duplicate_matrix(map);
 }
 
 /*Функция запускает MLX*/

@@ -79,5 +79,6 @@ typedef struct	s_game
 }				t_game;
 
 void	init_game(t_params *params, char **map);
+char	**ft_duplicate_matrix(char **map);
 
 #endif

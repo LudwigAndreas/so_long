@@ -10,7 +10,8 @@ SRCS_FILES		:=	map_checker.c\
 					get_next_line_utils.c\
 					map_validator.c\
 					init_game.c\
-					main.c
+					main.c\
+					utils.c
 OBJS_FILES		:= $(SRCS_FILES:.c=.o)
 SRCS			:= $(addprefix $(SRC_DIR), $(SRCS_FILES))
 OBJS			:= $(addprefix $(OBJ_DIR), $(OBJS_FILES))
