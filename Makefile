@@ -11,14 +11,18 @@ SRCS_FILES		:=	map_checker.c\
 					map_validator.c\
 					init_game.c\
 					main.c\
-					utils.c
+					utils.c\
+					sprites.c\
+					play.c\
+					redraw.c\
+					entities.c
 OBJS_FILES		:= $(SRCS_FILES:.c=.o)
 SRCS			:= $(addprefix $(SRC_DIR), $(SRCS_FILES))
 OBJS			:= $(addprefix $(OBJ_DIR), $(OBJS_FILES))
 RM				:= rm -rf
 LIBFTDIR_PATH	:= libft/
 LIBFT			:= $(addprefix $(LIBFTDIR_PATH), libft.a)
-HEADER			:= includes/map.h
+HEADER			:= includes/map.h includes/game.h
 MAP_DIR			:= resources/maps/
 MAPS_FILES		:= 	wrong_extension.txt\
 					empty_map.ber\
@@ -31,7 +35,7 @@ LMLX			:= -lmlx -framework OpenGL -framework AppKit
 all: obj $(NAME)
 
 obj: $(SRCS)
-	mkdir -p $(OBJ_DIR)
+	@mkdir -p $(OBJ_DIR)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	gcc -MD $(CFLAGS) $< -o $@

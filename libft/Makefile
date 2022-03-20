@@ -56,10 +56,10 @@ HEADER		:= libft.h
 %.o: %.c $(HEADER) $(SRCS)
 	$(CC) $(CFLAGS) $< -o $@ -include $(HEADER)
 
-$(NAME): $(OBJS) $(HEADER)
-	ar rcs $(NAME) $(OBJS)
+$(NAME): $(OBJS) $(HEADER) $(BONUS_OBJS)
+	ar rcs libft.a $(OBJS) $(BONUS_OBJS)
 
-all: $(NAME)
+all: $(NAME) bonus
 
 bonus: $(BONUS_OBJS) $(OBJS) $(HEADER)
 	ar rcs libft.a $(OBJS) $(BONUS_OBJS)
