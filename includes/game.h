@@ -8,6 +8,7 @@
 # define SIZE 32
 # define LOGO_W 128
 # define LOGO_L 32
+# define GAME_RATE 10
 
 enum e_keys
 {
@@ -38,9 +39,14 @@ typedef struct	s_pos
 typedef struct	s_en_sprites
 {
 	t_list	*up;
+	t_list	*st_up;
 	t_list	*down;
+	t_list	*st_down;
 	t_list	*right;
+	t_list	*st_right;
 	t_list	*left;
+	t_list	*st_left;
+	t_list	*st;
 }				t_en_sprites;
 
 /*Структура содержащая спрайты игры*/
@@ -52,8 +58,8 @@ typedef struct	s_sprites
 	void			*empty;
 	void			*hero;
 	void			*coin;
-	t_list 			*hero_dying_r;
-	t_list			*hero_dying_l;
+	t_list 			*hero_dying;
+//	t_list			*hero_dying_l;
 //	t_font		*font;
 }				t_sprites;
 
@@ -124,5 +130,14 @@ void	ft_put_hero(t_game *game);
 void	ft_redraw_hero(t_game *game);
 /* Проверяет возможно ли движение в направлении и передвигает сущность */
 void	ft_next_dir(t_game *game);
+
+t_list	*load_death(t_game *game);
+
+void	ft_load_hero(t_game *game);
+
+void	ft_go_west(t_game *game, t_entity *entity);
+void	ft_go_south(t_game *game, t_entity *entity);
+void	ft_go_east(t_game *game, t_entity *entity);
+void	ft_go_north(t_game *game, t_entity *entity);
 
 #endif

@@ -36,11 +36,12 @@ void	ft_new_game(t_game *game, t_params *params)
 	game->redraw = 1;
 	game->heroes = NULL;
 	game->enemies = NULL;
-	game->g_rate = 24;
+	game->g_rate = GAME_RATE;
 	game->width = params->width * SIZE;
 	game->length = params->length * SIZE + LOGO_L;
 	game->sprites = init_sprites(game);
 	ft_add_entities(game);
+	ft_load_hero(game);
 	mlx_loop_hook(game->mlx_id, ft_update, (void *)game);
 	mlx_key_hook(game->window, key_hook, (void *) game);
 	mlx_hook(game->window, 17, 0, close_game, (void *)game);

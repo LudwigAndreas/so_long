@@ -61,36 +61,16 @@ void	ft_put_hero(t_game *game)
 
 	hero = game->heroes;
 	mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty, hero->w_pos.x, hero->w_pos.y);
-	if (hero->dir == W) {
-		mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty,
-								hero->w_pos.x + 2, hero->w_pos.y);
-		mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.hero,
-								hero->w_pos.x, hero->w_pos.y);
-//		ft_go_west(game, hero);
-	}
-	if (hero->dir == E) {
-		mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty,
-								hero->w_pos.x - 2, hero->w_pos.y);
-		mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.hero,
-								hero->w_pos.x, hero->w_pos.y);
-//		ft_go_east(game, hero);
-	}
-	if (hero->dir == S) {
-		mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty,
-								hero->w_pos.x, hero->w_pos.y - 2);
-		mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.hero,
-								hero->w_pos.x, hero->w_pos.y);
-//		ft_go_south(game, hero);
-	}
-	if (hero->dir == N) {
-		mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty,
-								hero->w_pos.x, hero->w_pos.y + 2);
-		mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.hero,
-								hero->w_pos.x, hero->w_pos.y);
-//		ft_go_north(game, hero);
-	}
+	if (hero->dir == W)
+		ft_go_west(game, hero);
+	if (hero->dir == E)
+		ft_go_east(game, hero);
+	if (hero->dir == S)
+		ft_go_south(game, hero);
+	if (hero->dir == N)
+		ft_go_north(game, hero);
 	if (hero->dir == ST)
-		mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.hero, hero->w_pos.x, hero->w_pos.y);
+		mlx_put_image_to_window(game->mlx_id, game->window, hero->sprite.st->content, hero->w_pos.x, hero->w_pos.y);
 }
 
 void	ft_update_legal_act(t_game *game, t_entity *entity)
@@ -122,17 +102,21 @@ void	ft_move(t_entity *entity, t_game *game)
 	{
 		entity->pos = ft_new_pos(entity->pos.x, entity->pos.y - 1);
 	}
-	if (entity->dir == W && ft_is_mov_legal(entity, entity->dir)) {
+	if (entity->dir == W && ft_is_mov_legal(entity, entity->dir))
+	{
 		entity->pos = ft_new_pos(entity->pos.x - 1, entity->pos.y);
 	}
-	if (entity->dir == S && ft_is_mov_legal(entity, entity->dir)) {
-
+	if (entity->dir == S && ft_is_mov_legal(entity, entity->dir))
+	{
 		entity->pos = ft_new_pos(entity->pos.x, entity->pos.y + 1);
 	}
-	if (entity->dir == E && ft_is_mov_legal(entity, entity->dir)) {
+	if (entity->dir == E && ft_is_mov_legal(entity, entity->dir))
+	{
 		entity->pos = ft_new_pos(entity->pos.x + 1, entity->pos.y);
 	}
-	(void ) game;
+
+	entity->move = 1;
+	(void )(game);
 }
 
 void	ft_next_dir(t_game *game)

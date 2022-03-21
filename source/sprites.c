@@ -36,7 +36,7 @@ t_sprites	init_sprites(t_game *game)
 	"resources/sprites/sprites_xpm/coin.xpm", &size, &size);
 	game->sprites.logo = mlx_xpm_file_to_image(game->mlx_id, \
 	"resources/sprites/sprites_xpm/logo.xpm", &size, &size);
-	game->sprites.hero_dying_r = load_death(game);
+	game->sprites.hero_dying = load_death(game);
 	//game->sprites->font
 	return (game->sprites);
 }
