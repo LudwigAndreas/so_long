@@ -1,16 +1,15 @@
 #include "../includes/game.h"
 
+void    ft_update_score(t_game *game)
+{
+    mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.score, game->width, 0);
+
+    (void ) game;
+}
+
 void	next_direct(t_game *game, int dir)
 {
-	if (dir == N)
-		ft_putendl_fd("W", 1);
-	if (dir == W)
-		ft_putendl_fd("A", 1);
-	if (dir == S)
-		ft_putendl_fd("S", 1);
-	if (dir == E)
-		ft_putendl_fd("D", 1);
-//	ft_update_score(game)
+	ft_update_score(game);
 	game->next_dir = dir;
 }
 
@@ -36,7 +35,7 @@ int	ft_update(t_game *game)
 //		ft_put_enemies()
 		mlx_put_image_to_window(game->mlx_id, game->window,\
 		game->sprites.logo, (game->width - LOGO_W) / 2, game->length - LOGO_L);
-//		ft_update_score(g);
+		ft_update_score(game);
 		y = 0;
 		while (game->map[y])
 		{

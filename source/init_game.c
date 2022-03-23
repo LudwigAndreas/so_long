@@ -60,6 +60,6 @@ void	init_game(t_params *params, char **map)
 	game.map = ft_duplicate_matrix(map);
 //	free(map);
 	game.mlx_id = mlx_init();
-	game.window = mlx_new_window(game.mlx_id, params->width * SIZE, params->length * SIZE + LOGO_L, "SO_LONG");
+	game.window = mlx_new_window(game.mlx_id, params->width * SIZE + LOGO_W, params->length * SIZE + LOGO_L, "SO_LONG");
 	ft_new_game(&game, params);
 }

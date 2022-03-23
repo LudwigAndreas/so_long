@@ -96,27 +96,68 @@ int	ft_is_mov_legal(t_entity *entity, int dir)
 	return (0);
 }
 
+void	ft_open_doors(t_game *game)
+{
+	int x;
+	int y;
+
+	y = 0;
+	while (game->map[y])
+	{
+		x = 0;
+		while (game->map[y][x])
+		{
+			if (game->map[y][x] == 'E')
+				mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.open_ex, x * SIZE, y * SIZE);
+			x++;
+		}
+		y++;
+	}
+}
+
+void    ft_coin_count(t_game *game, t_entity *entity, t_pos new, t_pos temp)
+{
+	if (game->map[new.y][new.x] == 'E' && game->params->coins == 0)
+	{
+		mlx_put_image_to_window(game->mlx_id, game->window, \
+		game->sprites.empty, temp.x, temp.y);
+		close_game(game);
+	}
+	if (game->map[new.y][new.x] == 'E')
+	{
+		entity->move = 0;
+		entity->dir = ST;
+		return;
+	}
+    entity->move = 1;
+    entity->pos = new;
+}
+
 void	ft_move(t_entity *entity, t_game *game)
 {
-	if (entity->dir == N && ft_is_mov_legal(entity, entity->dir))
-	{
-		entity->pos = ft_new_pos(entity->pos.x, entity->pos.y - 1);
-	}
-	if (entity->dir == W && ft_is_mov_legal(entity, entity->dir))
-	{
-		entity->pos = ft_new_pos(entity->pos.x - 1, entity->pos.y);
-	}
-	if (entity->dir == S && ft_is_mov_legal(entity, entity->dir))
-	{
-		entity->pos = ft_new_pos(entity->pos.x, entity->pos.y + 1);
-	}
-	if (entity->dir == E && ft_is_mov_legal(entity, entity->dir))
-	{
-		entity->pos = ft_new_pos(entity->pos.x + 1, entity->pos.y);
-	}
+    t_pos pos;
+	t_pos temp;
 
-	entity->move = 1;
-	(void )(game);
+	temp = entity->pos;
+	if (entity->dir == N && ft_is_mov_legal(entity, entity->dir))
+		pos = ft_new_pos(entity->pos.x, entity->pos.y - 1);
+	else if (entity->dir == W && ft_is_mov_legal(entity, entity->dir))
+        pos = ft_new_pos(entity->pos.x - 1, entity->pos.y);
+	else if (entity->dir == S && ft_is_mov_legal(entity, entity->dir))
+        pos = ft_new_pos(entity->pos.x, entity->pos.y + 1);
+	else if (entity->dir == E && ft_is_mov_legal(entity, entity->dir))
+        pos = ft_new_pos(entity->pos.x + 1, entity->pos.y);
+    else
+        pos = ft_new_pos(0, 0);
+    if (game->map[pos.y][pos.x] == 'C')
+    {
+        game->map[pos.y][pos.x] = '0';
+        game->params->coins--;
+		if (game->params->coins == 0)
+			ft_open_doors(game);
+    }
+    if (pos.x && pos.y)
+        ft_coin_count(game, entity, pos, temp);
 }
 
 void	ft_next_dir(t_game *game)

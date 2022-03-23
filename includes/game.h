@@ -1,14 +1,15 @@
 #ifndef GAME_H
 # define GAME_H
 
-# include "../minilibx_opengl/mlx.h"
+# include "../mlx/mlx.h"
 # include "../libft/libft.h"
 # include "map.h"
 
-# define SIZE 32
-# define LOGO_W 128
-# define LOGO_L 32
-# define GAME_RATE 10
+# define SIZE 48
+# define LOGO_W 256
+# define LOGO_L 64
+# define SCORE_W 192
+# define GAME_RATE 5
 
 enum e_keys
 {
@@ -49,18 +50,34 @@ typedef struct	s_en_sprites
 	t_list	*st;
 }				t_en_sprites;
 
+typedef struct  s_font
+{
+    void    *zero;
+    void    *one;
+    void    *two;
+    void    *three;
+    void    *four;
+    void    *five;
+    void    *six;
+    void    *seven;
+    void    *eight;
+    void    *nine;
+}               t_font;
+
 /*Структура содержащая спрайты игры*/
 typedef struct	s_sprites
 {
 	void			*logo;
+    void            *score;
 	void			*wall;
 	void			*exit;
+	void			*open_ex;
 	void			*empty;
 	void			*hero;
 	void			*coin;
 	t_list 			*hero_dying;
 //	t_list			*hero_dying_l;
-//	t_font		*font;
+	t_font          *font;
 }				t_sprites;
 
 /*Структура содержащая данные о доступном направлении:

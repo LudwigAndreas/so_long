@@ -2,7 +2,7 @@
 
 void	ft_go_west(t_game *game, t_entity *entity)
 {
-	mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty, entity->w_pos.x + 2, entity->w_pos.y);
+	mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty, entity->w_pos.x + 3, entity->w_pos.y);
 	mlx_put_image_to_window(game->mlx_id, game->window, entity->sprite.left->content, entity->w_pos.x, entity->w_pos.y);
 	entity->sprite.st = entity->sprite.st_left;
 	if (game->frames % game->g_rate == 0)
@@ -11,7 +11,7 @@ void	ft_go_west(t_game *game, t_entity *entity)
 
 void	ft_go_south(t_game *game, t_entity *entity)
 {
-	mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty, entity->w_pos.x, entity->w_pos.y - 2);
+	mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty, entity->w_pos.x, entity->w_pos.y - 3);
 	mlx_put_image_to_window(game->mlx_id, game->window, entity->sprite.down->content, entity->w_pos.x, entity->w_pos.y);
 	entity->sprite.st = entity->sprite.st_down;
 	if (game->frames % game->g_rate == 0)
@@ -20,7 +20,7 @@ void	ft_go_south(t_game *game, t_entity *entity)
 
 void	ft_go_east(t_game *game, t_entity *entity)
 {
-	mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty, entity->w_pos.x - 2, entity->w_pos.y);
+	mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty, entity->w_pos.x - 3, entity->w_pos.y);
 	mlx_put_image_to_window(game->mlx_id, game->window, entity->sprite.right->content, entity->w_pos.x, entity->w_pos.y);
 	entity->sprite.st = entity->sprite.st_right;
 	if (game->frames % game->g_rate == 0)
@@ -29,7 +29,7 @@ void	ft_go_east(t_game *game, t_entity *entity)
 
 void	ft_go_north(t_game *game, t_entity *entity)
 {
-	mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty, entity->w_pos.x, entity->w_pos.y + 2);
+	mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty, entity->w_pos.x, entity->w_pos.y + 3);
 	mlx_put_image_to_window(game->mlx_id, game->window, entity->sprite.up->content, entity->w_pos.x, entity->w_pos.y);
 	entity->sprite.st = entity->sprite.st_up;
 	if (game->frames % game->g_rate == 0)

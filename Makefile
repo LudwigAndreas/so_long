@@ -31,7 +31,7 @@ MAPS_FILES		:= 	wrong_extension.txt\
 					simple_valid_map.ber
 MAPS			:= $(addprefix $(MAP_DIR), $(MAPS_FILES))
 EXEC			:= $(addprefix ./, $(NAME))
-MINILIBX		:= minilibx_opengl/
+MINILIBX		:= mlx/
 LMLX			:= -lmlx -framework OpenGL -framework AppKit
 
 all: obj $(NAME)
@@ -40,14 +40,12 @@ obj: $(SRCS)
 	@mkdir -p $(OBJ_DIR)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	gcc -MD $(CFLAGS) $< -o $@
+	gcc -MD -Imlx $(CFLAGS) $< -o $@
 
 $(NAME): $(OBJS) $(HEADER)
 	make -C $(LIBFTDIR_PATH)
 	make -C $(MINILIBX)
-	#gcc $(OFLAGS) $(NAME) $(OBJS) $(LIBFTDIR_PATH)libft.a -include $(LIBFTDIR_PATH)libft.h -include $(HEADER)
-	gcc -MD $(OBJS) $(LIBFTDIR_PATH)libft.a -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-	#gcc $(CFLAGS) $(OBJ) $(LIBFT) $(LMLX) -o $@
+	gcc -MD $(OBJS) $(LIBFTDIR_PATH)libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 play: all $(MAPS)
 
