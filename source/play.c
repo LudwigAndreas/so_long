@@ -1,26 +1,40 @@
 #include "../includes/game.h"
 
-void    ft_update_score(t_game *game)
+void	ft_death(t_game *game)
 {
-    mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.score, game->width, 0);
+	t_entity	*hero;
 
-    (void ) game;
-}
-
-void	next_direct(t_game *game, int dir)
-{
-	ft_update_score(game);
-	game->next_dir = dir;
+	hero = game->heroes;
+	game->heroes->move = 0;
+	if (game->sprites.hero_dying_r == NULL || game->sprites.hero_dying_l == NULL)
+	{
+		ft_putstr_fd("\nGAME OVER!\nLet's try again!\n\n", 1);
+		close_game(game);
+	}
+	if (hero->prev_dir == E || hero->prev_dir == N) {
+		mlx_put_image_to_window(game->mlx_id, game->window, \
+        game->sprites.empty, game->heroes->w_pos.x, game->heroes->w_pos.y);
+		mlx_put_image_to_window(game->mlx_id, game->window, \
+        game->sprites.hero_dying_r->content, game->heroes->w_pos.x, game->heroes->w_pos.y);
+		game->sprites.hero_dying_r = game->sprites.hero_dying_r->next;
+	}
+	else if (hero->prev_dir == W || hero->prev_dir == S) {
+		mlx_put_image_to_window(game->mlx_id, game->window, \
+        game->sprites.empty, game->heroes->w_pos.x, game->heroes->w_pos.y);
+		mlx_put_image_to_window(game->mlx_id, game->window, \
+        game->sprites.hero_dying_l->content, game->heroes->w_pos.x, game->heroes->w_pos.y);
+		game->sprites.hero_dying_l = game->sprites.hero_dying_l->next;
+	}
 }
 
 void	ft_check_redraw(t_game *game)
 {
-	if (game->next_dir)
+	if (game->next_dir && !game->dead_ind)
 		ft_next_dir(game);
 	if (!game->dead_ind)
 		ft_redraw_hero(game);
-//	if (game->dead_ind)
-//		ft_death(game);
+	if (game->dead_ind && game->frames % 7000 == 0)
+		ft_death(game);
 }
 
 int	ft_update(t_game *game)

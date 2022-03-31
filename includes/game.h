@@ -5,11 +5,18 @@
 # include "../libft/libft.h"
 # include "map.h"
 
+/*Game sprites sizes*/
 # define SIZE 48
 # define LOGO_W 256
 # define LOGO_L 64
 # define SCORE_W 192
+
+/*Rate of game animations*/
 # define GAME_RATE 5
+
+/* Variations of enemies:
+ * (O)rc, (N)ecromancer, (S)lime, (K)ing_goblin, (G)host */
+# define ENEMIES "ONSKG"
 
 enum e_keys
 {
@@ -17,7 +24,12 @@ enum e_keys
 	A_KEY = 0,
 	S_KEY = 1,
 	D_KEY = 2,
-	ESC_KEY = 53
+	ESC_KEY = 53,
+	UP_KEY = 126,
+	LEFT_KEY = 123,
+	DOWN_KEY = 125,
+	RIGHT_KEY = 124,
+	E_KEY = 14
 };
 
 enum e_direction
@@ -75,9 +87,9 @@ typedef struct	s_sprites
 	void			*empty;
 	void			*hero;
 	void			*coin;
-	t_list 			*hero_dying;
-//	t_list			*hero_dying_l;
-	t_font          *font;
+	t_list 			*hero_dying_r;
+	t_list			*hero_dying_l;
+	t_font          font;
 }				t_sprites;
 
 /*Структура содержащая данные о доступном направлении:
@@ -96,6 +108,7 @@ typedef struct	s_entity
 	t_pos			pos;
 	t_pos			w_pos;
 	int				dir;
+	int				prev_dir;
 	int				move;
 	t_en_sprites	sprite;
 	t_legal_act		legal;
@@ -148,9 +161,15 @@ void	ft_redraw_hero(t_game *game);
 /* Проверяет возможно ли движение в направлении и передвигает сущность */
 void	ft_next_dir(t_game *game);
 
-t_list	*load_death(t_game *game);
+t_list	*load_death_l(t_game *game);
+t_list	*load_death_r(t_game *game);
+
 
 void	ft_load_hero(t_game *game);
+
+void	next_direct(t_game *game, int dir);
+
+void    ft_update_score(t_game *game);
 
 void	ft_go_west(t_game *game, t_entity *entity);
 void	ft_go_south(t_game *game, t_entity *entity);

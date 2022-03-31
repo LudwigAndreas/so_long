@@ -168,8 +168,10 @@ void	ft_next_dir(t_game *game)
 	if (!hero->move)
 	{
 		ft_update_legal_act(game, hero);
-		if (game->next_dir && ft_is_mov_legal(hero, game->next_dir))
+		if (game->next_dir && ft_is_mov_legal(hero, game->next_dir)) {
+			hero->prev_dir = hero->dir;
 			hero->dir = game->next_dir;
+		}
 		else
 			hero->dir = ST;
 		ft_move(hero, game);

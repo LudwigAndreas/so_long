@@ -6,14 +6,16 @@ int	key_hook(int key, t_game *game)
 {
 	if (key == ESC_KEY)
 		close_game(game);
-	if (key == W_KEY)
+	if ((key == W_KEY || key == UP_KEY) && game->next_dir != N && !game->dead_ind)
 		next_direct(game, N);
-	if (key == A_KEY)
+	if ((key == A_KEY || key == LEFT_KEY) && game->next_dir != W && !game->dead_ind)
 		next_direct(game, W);
-	if (key == S_KEY)
+	if ((key == S_KEY || key == DOWN_KEY) && game->next_dir != S && !game->dead_ind)
 		next_direct(game, S);
-	if (key == D_KEY)
+	if ((key == D_KEY || key == RIGHT_KEY) && game->next_dir != E && !game->dead_ind)
 		next_direct(game, E);
+	if (key == E_KEY)
+		game->dead_ind = 1;
 	return (0);
 }
 
