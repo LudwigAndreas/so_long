@@ -8,13 +8,13 @@ t_list	*load_death_l(t_game *game)
 	size = SIZE;
 	death = NULL;
 	ft_lstadd_back(&death, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id, \
-		"resources/sprites/pl2/death_l/pl1.xpm", &size, &size)));
+		"resources/sprites/pl/death_l/pl1.xpm", &size, &size)));
 	ft_lstadd_back(&death, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id, \
-		"resources/sprites/pl2/death_l/pl2.xpm", &size, &size)));
+		"resources/sprites/pl/death_l/pl2.xpm", &size, &size)));
 	ft_lstadd_back(&death, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id, \
-		"resources/sprites/pl2/death_l/pl3.xpm", &size, &size)));
+		"resources/sprites/pl/death_l/pl3.xpm", &size, &size)));
 	ft_lstadd_back(&death, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id, \
-		"resources/sprites/pl2/death_l/pl4.xpm", &size, &size)));
+		"resources/sprites/pl/death_l/pl4.xpm", &size, &size)));
 	game->sprites.hero_dying_l = death;
 	return (death);
 }
@@ -27,13 +27,13 @@ t_list	*load_death_r(t_game *game)
 	size = SIZE;
 	death = NULL;
 	ft_lstadd_back(&death, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id, \
-		"resources/sprites/pl2/death_r/pl1.xpm", &size, &size)));
+		"resources/sprites/pl/death_r/pl1.xpm", &size, &size)));
 	ft_lstadd_back(&death, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id, \
-		"resources/sprites/pl2/death_r/pl2.xpm", &size, &size)));
+		"resources/sprites/pl/death_r/pl2.xpm", &size, &size)));
 	ft_lstadd_back(&death, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id, \
-		"resources/sprites/pl2/death_r/pl3.xpm", &size, &size)));
+		"resources/sprites/pl/death_r/pl3.xpm", &size, &size)));
 	ft_lstadd_back(&death, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id, \
-		"resources/sprites/pl2/death_r/pl4.xpm", &size, &size)));
+		"resources/sprites/pl/death_r/pl4.xpm", &size, &size)));
 	game->sprites.hero_dying_r = death;
 	return (death);
 }
@@ -78,7 +78,7 @@ t_sprites	init_sprites(t_game *game)
 	game->sprites.exit = mlx_xpm_file_to_image(game->mlx_id, \
 		"resources/sprites/closed_door.xpm", &size, &size);
 	game->sprites.hero = mlx_xpm_file_to_image(game->mlx_id, \
-		"resources/sprites/pl2/pl1.xpm", &size, &size);
+		"resources/sprites/pl/pl1.xpm", &size, &size);
 	game->sprites.coin = mlx_xpm_file_to_image(game->mlx_id, \
 		"resources/sprites/coin.xpm", &size, &size);
 	game->sprites.logo = mlx_xpm_file_to_image(game->mlx_id, \
