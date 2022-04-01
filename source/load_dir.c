@@ -29,6 +29,7 @@ t_list	*ft_load_south(t_game *game, char *path, int mode)
 		s = ft_strjoin(path, name);
 		ft_lstadd_back(&run, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id,\
 		s, &size, &size)));
+		ft_putendl_fd(s, 1);
 		ft_memset(&name[5], '1' + i, 1);
 		free(s);
 		i++;
@@ -60,6 +61,7 @@ t_list	*ft_load_west(t_game *game, char *path, int mode)
 		s = ft_strjoin(path, name);
 		ft_lstadd_back(&run, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id,\
 		s, &size, &size)));
+		ft_putendl_fd(s, 1);
 		ft_memset(&name[5], '1' + i, 1);
 		free(s);
 		i++;
@@ -91,6 +93,7 @@ t_list	*ft_load_north(t_game *game, char *path, int mode)
 		s = ft_strjoin(path, name);
 		ft_lstadd_back(&run, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id,\
 		s, &size, &size)));
+		ft_putendl_fd(s, 1);
 		ft_memset(&name[3], '1' + i, 1);
 		free(s);
 		i++;
@@ -122,6 +125,7 @@ t_list	*ft_load_east(t_game *game, char *path, int mode)
 		s = ft_strjoin(path, name);
 		ft_lstadd_back(&run, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id,\
 		s, &size, &size)));
+		ft_putendl_fd(s, 1);
 		ft_memset(&name[6], '1' + i, 1);
 		free(s);
 		i++;

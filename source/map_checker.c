@@ -4,9 +4,6 @@ t_params	ft_null_params(void)
 {
 	t_params	params;
 
-//	params = (t_params *) malloc(sizeof(t_params));
-//	if (!params)
-//		return (NULL);
 	params.coins = 0;
 	params.foes = 0;
 	params.exits = 0;

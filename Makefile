@@ -18,7 +18,8 @@ SRCS_FILES		:=	map_checker.c\
 					entities.c\
 					ft_go_dir.c\
 					load_dir.c\
-					score.c
+					score.c\
+					enemies.c
 OBJS_FILES		:= $(SRCS_FILES:.c=.o)
 SRCS			:= $(addprefix $(SRC_DIR), $(SRCS_FILES))
 OBJS			:= $(addprefix $(OBJ_DIR), $(OBJS_FILES))

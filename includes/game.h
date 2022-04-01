@@ -16,7 +16,7 @@
 
 /* Variations of enemies:
  * (O)rc, (N)ecromancer, (S)lime, (K)ing_goblin, (G)host */
-# define ENEMIES "ONSKG"
+# define ENEMIES "GKN"
 
 enum e_keys
 {
@@ -156,6 +156,8 @@ t_pos	ft_new_pos(int x, int y);
 void	ft_add_entities(t_game *game);
 /* Отрисовка героя на экране */
 void	ft_put_hero(t_game *game);
+
+void	ft_put_enemies(t_game *game);
 /* Попиксельное перемещение героя по экрану */
 void	ft_redraw_hero(t_game *game);
 /* Проверяет возможно ли движение в направлении и передвигает сущность */
@@ -164,8 +166,14 @@ void	ft_next_dir(t_game *game);
 t_list	*load_death_l(t_game *game);
 t_list	*load_death_r(t_game *game);
 
+t_list	*ft_load_south(t_game *game, char *path, int mode);
+t_list	*ft_load_west(t_game *game, char *path, int mode);
+t_list	*ft_load_north(t_game *game, char *path, int mode);
+t_list	*ft_load_east(t_game *game, char *path, int mode);
 
 void	ft_load_hero(t_game *game);
+void	ft_load_enemies(t_game *game);
+
 
 void	next_direct(t_game *game, int dir);
 

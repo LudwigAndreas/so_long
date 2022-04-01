@@ -44,6 +44,7 @@ void	ft_new_game(t_game *game, t_params *params)
 	game->sprites = init_sprites(game);
 	ft_add_entities(game);
 	ft_load_hero(game);
+	ft_load_enemies(game);
 	mlx_loop_hook(game->mlx_id, ft_update, (void *)game);
 	mlx_key_hook(game->window, key_hook, (void *) game);
 	mlx_hook(game->window, 17, 0, close_game, (void *)game);

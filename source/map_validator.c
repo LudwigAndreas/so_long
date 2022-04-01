@@ -15,7 +15,7 @@ void	line_validator(char *line, t_params *params, char *out)
 			params->players++;
 		if (line[i] == 'F')
 			params->foes++;
-		if (!ft_strchr("01CEPF\n", line[i]))
+		if (!ft_strchr("01CEPG\n", line[i]))
 			break ;
 		i++;
 	}

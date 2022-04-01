@@ -46,7 +46,7 @@ int	ft_update(t_game *game)
 	ft_check_redraw(game);
 	if (game->redraw)
 	{
-//		ft_put_enemies()
+		ft_put_enemies(game);
 		mlx_put_image_to_window(game->mlx_id, game->window,\
 		game->sprites.logo, (game->width - LOGO_W) / 2, game->length - LOGO_L);
 		ft_update_score(game);
