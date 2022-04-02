@@ -16,7 +16,7 @@
 
 /* Variations of enemies:
  * (O)rc, (N)ecromancer, (S)lime, (K)ing_goblin, (G)host */
-# define ENEMIES "GKN"
+# define ENEMIES "ONSKG"
 
 enum e_keys
 {
@@ -158,6 +158,8 @@ void	ft_add_entities(t_game *game);
 void	ft_put_hero(t_game *game);
 
 void	ft_put_enemies(t_game *game);
+
+void	ft_redraw_enemies(t_game *game);
 /* Попиксельное перемещение героя по экрану */
 void	ft_redraw_hero(t_game *game);
 /* Проверяет возможно ли движение в направлении и передвигает сущность */

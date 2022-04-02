@@ -1,0 +1,123 @@
+==2595== Memcheck, a memory error detector
+==2595== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2595== Using Valgrind-3.19.0.GIT-lbmacos-6ff08b6e31-20220212 and LibVEX; rerun with -h for copyright info
+==2595== Command: ./so_long resources/maps/valid_maps/simple_valid_map.ber
+==2595== Parent PID: 504
+==2595== 
+--2595-- 
+--2595-- Valgrind options:
+--2595--    --leak-check=full
+--2595--    --show-leak-kinds=all
+--2595--    --track-origins=yes
+--2595--    --verbose
+--2595--    --log-file=valgrind-out.txt
+--2595-- Output from sysctl({CTL_KERN,KERN_VERSION}):
+--2595--   Darwin Kernel Version 20.6.0: Tue Feb 22 21:10:41 PST 2022; root:xnu-7195.141.26~1/RELEASE_X86_64
+--2595-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--2595-- Page sizes: currently 4096, max supported 4096
+--2595-- Valgrind library directory: /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind
+--2595-- ./so_long (rx at 0x100000000, rw at 0x100024000)
+--2595--    reading syms   from primary file (132 55)
+--2595--    dSYM= ./so_long.dSYM/Contents/Resources/DWARF/so_long
+--2595--    dSYM does not have correct UUID (out of date?)
+--2595-- run: /usr/bin/dsymutil "./so_long"
+--2595--    dsyms= ./so_long.dSYM/Contents/Resources/DWARF/so_long
+--2595-- /usr/lib/dyld (rx at 0x100030000, rw at 0x1000cc000)
+--2595--    reading syms   from primary file (5 2905)
+--2595-- Scheduler: using generic scheduler lock implementation.
+--2595-- Reading suppressions file: /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/default.supp
+==2595== embedded gdbserver: reading from /var/folders/5h/yvtyzv8d0pg_qqkttk65l2t80000gn/T//vgdb-pipe-from-vgdb-to-2595-by-landreas-on-???
+==2595== embedded gdbserver: writing to   /var/folders/5h/yvtyzv8d0pg_qqkttk65l2t80000gn/T//vgdb-pipe-to-vgdb-from-2595-by-landreas-on-???
+==2595== embedded gdbserver: shared mem   /var/folders/5h/yvtyzv8d0pg_qqkttk65l2t80000gn/T//vgdb-pipe-shared-mem-vgdb-2595-by-landreas-on-???
+==2595== 
+==2595== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==2595== don't want to do, unless you know exactly what you're doing,
+==2595== or are doing some strange experiment):
+==2595==   /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/../../bin/vgdb --pid=2595 ...command...
+==2595== 
+==2595== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==2595==   /path/to/gdb ./so_long
+==2595== and then give GDB the following command
+==2595==   target remote | /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/../../bin/vgdb --pid=2595
+==2595== --pid is optional if only one valgrind process is running
+==2595== 
+--2595-- REDIR: 0x100088c00 (dyld:strcmp) redirected to 0x258058c02 (???)
+--2595-- REDIR: 0x100082b74 (dyld:arc4random) redirected to 0x258058ca0 (???)
+--2595-- REDIR: 0x100087fe0 (dyld:strlen) redirected to 0x258058bd1 (???)
+--2595-- REDIR: 0x100088f00 (dyld:strcpy) redirected to 0x258058c1e (???)
+--2595-- REDIR: 0x100086017 (dyld:strcat) redirected to 0x258058be2 (???)
+--2595-- REDIR: 0x100087dc7 (dyld:strlcat) redirected to 0x258058c3b (???)
+==2595== Warning: set address range perms: large range [0x7fff2053a000, 0x80002033a000) (defined)
+==2595== Warning: set address range perms: large range [0x7fff2053a000, 0x7fff7fee2000) (defined)
+==2595== Warning: set address range perms: large range [0x7fff8e79e000, 0x7fffc053a000) (noaccess)
+==2595== Warning: set address range perms: large range [0x7fffc053a000, 0x7fffe33fe000) (defined)
+==2595== Warning: set address range perms: large range [0x7fffe33fe000, 0x7fffffe00000) (noaccess)
+--2595-- /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_core-amd64-darwin.so (rx at 0x100148000, rw at 0x10014c000)
+--2595--    reading syms   from primary file (3 53)
+--2595--    dSYM= /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_core-amd64-darwin.so.dSYM/Contents/Resources/DWARF/vgpreload_core-amd64-darwin.so
+--2595-- /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so (rx at 0x100154000, rw at 0x10015c000)
+--2595--    reading syms   from primary file (75 62)
+--2595--    dSYM= /usr/local/Cellar/valgrind/HEAD-6ff08b6/libexec/valgrind/vgpreload_memcheck-amd64-darwin.so.dSYM/Contents/Resources/DWARF/vgpreload_memcheck-amd64-darwin.so
+--2595-- UNKNOWN mach_msg unhandled MACH_SEND_TRAILER option
+--2595-- UNKNOWN mach_msg unhandled MACH_SEND_TRAILER option (repeated 2 times)
+--2595-- UNKNOWN mach_msg unhandled MACH_SEND_TRAILER option (repeated 4 times)
+--2595-- UNKNOWN mach_msg unhandled MACH_SEND_TRAILER option (repeated 8 times)
+--2595-- /System/Library/CoreServices/Encodings/libCyrillicConverter.dylib (rx at 0x1001be000, rw at 0x1001c2000)
+--2595--    reading syms   from primary file (1 30)
+==2595== Conditional jump or move depends on uninitialised value(s)
+==2595==    at 0x100002AE3: get_next_line (in ./so_long)
+==2595==    by 0x100002984: map_to_line (in ./so_long)
+==2595==    by 0x100002926: map_parser (in ./so_long)
+==2595==    by 0x1000028D6: map_checker (in ./so_long)
+==2595==    by 0x100003775: main (in ./so_long)
+==2595==  Uninitialised value was created by a stack allocation
+==2595==    at 0x100002A20: get_next_line (in ./so_long)
+==2595== 
+UNKNOWN workq_ops option 1024
+==2595== Thread 2:
+==2595== Invalid write of size 8
+==2595==    at 0x7FFF206ADF1F: ??? (in /dev/ttys000)
+==2595==    by 0x7FFF20845416: ??? (in /dev/ttys000)
+==2595==    by 0x7FFF2084442E: ??? (in /dev/ttys000)
+==2595==  Address 0x20 is not stack'd, malloc'd or (recently) free'd
+==2595== 
+==2595== 
+==2595== Process terminating with default action of signal 11 (SIGSEGV)
+==2595==  Access not within mapped region at address 0x20
+==2595==    at 0x7FFF206ADF1F: ??? (in /dev/ttys000)
+==2595==    by 0x7FFF20845416: ??? (in /dev/ttys000)
+==2595==    by 0x7FFF2084442E: ??? (in /dev/ttys000)
+==2595==  If you believe this happened as a result of a stack
+==2595==  overflow in your program's main thread (unlikely but
+==2595==  possible), you can try to increase the size of the
+==2595==  main thread stack using the --main-stacksize= flag.
+==2595==  The main thread stack size used in this run was 8388608.
+==2595== 
+==2595== HEAP SUMMARY:
+==2595==     in use at exit: 0 bytes in 0 blocks
+==2595==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
+==2595== 
+==2595== All heap blocks were freed -- no leaks are possible
+==2595== 
+==2595== ERROR SUMMARY: 14 errors from 2 contexts (suppressed: 0 from 0)
+==2595== 
+==2595== 1 errors in context 1 of 2:
+==2595== Invalid write of size 8
+==2595==    at 0x7FFF206ADF1F: ??? (in /dev/ttys000)
+==2595==    by 0x7FFF20845416: ??? (in /dev/ttys000)
+==2595==    by 0x7FFF2084442E: ??? (in /dev/ttys000)
+==2595==  Address 0x20 is not stack'd, malloc'd or (recently) free'd
+==2595== 
+==2595== 
+==2595== 13 errors in context 2 of 2:
+==2595== Thread 1:
+==2595== Conditional jump or move depends on uninitialised value(s)
+==2595==    at 0x100002AE3: get_next_line (in ./so_long)
+==2595==    by 0x100002984: map_to_line (in ./so_long)
+==2595==    by 0x100002926: map_parser (in ./so_long)
+==2595==    by 0x1000028D6: map_checker (in ./so_long)
+==2595==    by 0x100003775: main (in ./so_long)
+==2595==  Uninitialised value was created by a stack allocation
+==2595==    at 0x100002A20: get_next_line (in ./so_long)
+==2595== 
+==2595== ERROR SUMMARY: 14 errors from 2 contexts (suppressed: 0 from 0)

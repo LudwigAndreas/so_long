@@ -71,5 +71,6 @@ char	**map_parser(int fd, t_params *params)
 	map_line = map_to_line(fd, params);
 	map = ft_split(map_line, '\n');
 	free(map_line);
+	close(fd);
 	return (map);
 }

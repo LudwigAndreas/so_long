@@ -33,6 +33,10 @@ void	ft_check_redraw(t_game *game)
 		ft_next_dir(game);
 	if (!game->dead_ind)
 		ft_redraw_hero(game);
+//	if (!game->dead_ind && !(game->frames % 2) && !(game->frames % 3))
+//		ft_redraw_enemies(game);
+//	if (game->heroes->dir == ST && !game->dead_ind)
+
 	if (game->dead_ind && game->frames % 7000 == 0)
 		ft_death(game);
 }
