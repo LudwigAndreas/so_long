@@ -115,12 +115,12 @@ void	ft_open_doors(t_game *game)
 	}
 }
 
-void    ft_coin_count(t_game *game, t_entity *entity, t_pos new, t_pos temp)
+void    ft_door_checker(t_game *game, t_entity *entity, t_pos new)
 {
 	if (game->map[new.y][new.x] == 'E' && game->params->coins == 0)
 	{
-		mlx_put_image_to_window(game->mlx_id, game->window, \
-		game->sprites.empty, temp.x, temp.y);
+		printf("\nYou win!\nTotal number of moves: %d\nCollected coins: %d\n",
+			   game->moves, game->all_coins);
 		close_game(game);
 	}
 	if (game->map[new.y][new.x] == 'E')
@@ -136,9 +136,7 @@ void    ft_coin_count(t_game *game, t_entity *entity, t_pos new, t_pos temp)
 void	ft_move(t_entity *entity, t_game *game)
 {
     t_pos pos;
-	t_pos temp;
 
-	temp = entity->pos;
 	if (entity->dir == N && ft_is_mov_legal(entity, entity->dir))
 		pos = ft_new_pos(entity->pos.x, entity->pos.y - 1);
 	else if (entity->dir == W && ft_is_mov_legal(entity, entity->dir))
@@ -153,11 +151,9 @@ void	ft_move(t_entity *entity, t_game *game)
     {
         game->map[pos.y][pos.x] = '0';
         game->params->coins--;
-		if (game->params->coins == 0)
-			ft_open_doors(game);
     }
     if (pos.x && pos.y)
-        ft_coin_count(game, entity, pos, temp);
+        ft_door_checker(game, entity, pos);
 }
 
 void	ft_next_dir(t_game *game)

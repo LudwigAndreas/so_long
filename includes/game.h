@@ -176,6 +176,7 @@ t_list	*ft_load_east(t_game *game, char *path, int mode);
 void	ft_load_hero(t_game *game);
 void	ft_load_enemies(t_game *game);
 
+void	ft_open_doors(t_game *game);
 
 void	next_direct(t_game *game, int dir);
 

@@ -22,7 +22,17 @@ int	key_hook(int key, t_game *game)
 /* Выход из игры с освобождением всей памяти */
 int	close_game(t_game *game)
 {
-	//TODO освобождение памяти
+	int i;
+
+	i = 0;
+	while (game->map[i])
+	{
+		free(game->map[i]);
+		i++;
+	}
+	free(game->map);
+	free(game->heroes);
+	mlx_clear_window(game->mlx_id, game->window);
 	mlx_destroy_window(game->mlx_id, game->window);
 	exit(0);
 	return (0);
@@ -60,8 +70,7 @@ void	init_game(t_params *params, char **map)
 	game.length = params->length;
 	game.width = params->width;
 	game.all_coins = params->coins;
-	game.map = ft_duplicate_matrix(map);
-//	free(map);
+	game.map = map;
 	game.mlx_id = mlx_init();
 	game.window = mlx_new_window(game.mlx_id, params->width * SIZE + LOGO_W, params->length * SIZE + LOGO_L, "SO_LONG");
 	ft_new_game(&game, params);
