@@ -24,6 +24,8 @@ int	close_game(t_game *game)
 {
 	int i;
 
+	mlx_clear_window(game->mlx_id, game->window);
+	mlx_destroy_window(game->mlx_id, game->window);
 	i = 0;
 	while (game->map[i])
 	{
@@ -32,8 +34,6 @@ int	close_game(t_game *game)
 	}
 	free(game->map);
 	free(game->heroes);
-	mlx_clear_window(game->mlx_id, game->window);
-	mlx_destroy_window(game->mlx_id, game->window);
 	exit(0);
 	return (0);
 }
@@ -52,6 +52,7 @@ void	ft_new_game(t_game *game, t_params *params)
 	game->width = params->width * SIZE;
 	game->length = params->length * SIZE + LOGO_L;
 	game->sprites = init_sprites(game);
+	game->next_dir = 0;
 	ft_add_entities(game);
 	ft_load_hero(game);
 	ft_load_enemies(game);
@@ -72,6 +73,6 @@ void	init_game(t_params *params, char **map)
 	game.all_coins = params->coins;
 	game.map = map;
 	game.mlx_id = mlx_init();
-	game.window = mlx_new_window(game.mlx_id, params->width * SIZE + LOGO_W, params->length * SIZE + LOGO_L, "SO_LONG");
+	game.window = mlx_new_window(game.mlx_id, params->width * SIZE + SCORE_W, params->length * SIZE + LOGO_L, "SO_LONG");
 	ft_new_game(&game, params);
 }

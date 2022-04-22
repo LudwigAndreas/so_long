@@ -43,12 +43,12 @@ obj: $(SRCS)
 	@mkdir -p $(OBJ_DIR)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	gcc -MD -Imlx $(CFLAGS) $< -o $@
+	gcc -Imlx $(CFLAGS) $< -o $@
 
 $(NAME): $(OBJS) $(HEADER)
 	make -C $(LIBFTDIR_PATH)
 	make -C $(MINILIBX)
-	gcc -MD $(OBJS) $(LIBFTDIR_PATH)libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	gcc $(OBJS) $(LIBFTDIR_PATH)libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 play: all $(MAPS)
 

@@ -2,19 +2,18 @@
 
 int ft_check_legal(t_entity *enemy)
 {
-	if (enemy->dir == N && !(enemy->legal.E && enemy->legal.W)
+	if (enemy->dir == N && !(enemy->legal.E || enemy->legal.W)
 			&& enemy->legal.N)
 		return (N);
-	if (enemy->dir == S && !(enemy->legal.E && enemy->legal.W)
+	if (enemy->dir == S && !(enemy->legal.E || enemy->legal.W)
 			&& enemy->legal.S)
 		return (S);
-	if (enemy->dir == W && !(enemy->legal.N && enemy->legal.S)
+	if (enemy->dir == W && !(enemy->legal.N || enemy->legal.S)
 			&& enemy->legal.W)
 		return (W);
-	if (enemy->dir == E && !(enemy->legal.N && enemy->legal.S)
+	if (enemy->dir == E && !(enemy->legal.N || enemy->legal.S)
 			&& enemy->legal.E)
 		return (E);
-//	(void ) enemy;
 	return (0);
 }
 
@@ -28,30 +27,33 @@ int	ft_get_en_dir(t_game *game, t_entity *enemy)
 	hero = game->heroes;
 	ft_update_legal_act(game, enemy);
 	dir = ft_check_legal(enemy);
-	//Если вернулось 0, математически выщитываем наилучший возможный путь к игроку
-	ft_putnbr_fd(dir, 1);
+//	ft_putnbr_fd(dir, 1);
 	if (dir)
 		return (dir);
 	x = hero->pos.x - enemy->pos.x;
 	y = hero->pos.y - enemy->pos.y;
-	//Приоритетно сокращаем дистанцию по стандарту
-	if (x * x >= y * y && (enemy->legal.E || enemy->legal.W))
-	{
-		ft_putendl_fd("EW", 1);
-		if (x >= 0 && enemy->legal.E)
-			return (E);
-		if (x < 0 && enemy->legal.W)
-			return (W);
-	}
-	else
-	{
-		ft_putendl_fd("SN", 1);
-		if (y >= 0 && enemy->legal.S)
-			return (S);
-		if (y < 0 && enemy->legal.N)
-			return (N);
-	}
-	ft_putendl_fd("ST", 1);
+	if (x * x >= y * y && x >= 0 && enemy->legal.E)
+		return (E);
+	if (x * x >= y * y && x < 0 && enemy->legal.W)
+		return (W);
+	if (y > 0 && enemy->legal.S)
+		return (S);
+	if (y <= 0 && enemy->legal.N)
+		return (N);
+//	if (x * x >= y * y && (enemy->legal.E || enemy->legal.W))
+//	{
+//		if (x >= 0 && enemy->legal.E)
+//			return (E);
+//		if (x < 0 && enemy->legal.W)
+//			return (W);
+//	}
+//	else
+//	{
+//		if (y >= 0 && enemy->legal.S)
+//			return (S);
+//		if (y < 0 && enemy->legal.N)
+//			return (N);
+//	}
 	return (ST);
 }
 
@@ -63,7 +65,6 @@ void	ft_update_en(t_game *game)
 	enemy = game->enemies;
 	while (enemy && !enemy->move)
 	{
-//		ft_putendl_fd("enemy:\n", 1);
 		dir = ft_get_en_dir(game, enemy);
 		enemy->move = 1;
 		ft_move_en(dir, enemy, game);
@@ -92,9 +93,4 @@ void	ft_move_en(int dir, t_entity *entity, t_game *game)
 		game->dead_ind = 1;
 		entity->pos = pos;
 	}
-//	for(int i = 0; game->map[i]; i++)
-//	{
-//		ft_putendl_fd(game->map[i], 1);
-//	}
-//	ft_putendl_fd("", 1);
 }

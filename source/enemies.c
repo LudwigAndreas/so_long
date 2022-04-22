@@ -1,6 +1,6 @@
 #include "../includes/game.h"
 
-t_list	*ft_get_enemy(t_game *game, int i, int dir)
+t_list	*ft_get_hero(t_game *game, int i, int dir)
 {
 	t_list	*anim;
 	char	*path;
@@ -31,13 +31,13 @@ void	ft_load_enemies(t_game *game)
 	enemy = game->enemies;
 	while (enemy)
 	{
-		enemy->sprite.up = ft_get_enemy(game, i, N);
+		enemy->sprite.up = ft_get_hero(game, i, N);
 		enemy->sprite.st_up = enemy->sprite.up;
-		enemy->sprite.down = ft_get_enemy(game, i, S);
+		enemy->sprite.down = ft_get_hero(game, i, S);
 		enemy->sprite.st_down = enemy->sprite.down;
-		enemy->sprite.right = ft_get_enemy(game, i, E);
+		enemy->sprite.right = ft_get_hero(game, i, E);
 		enemy->sprite.st_right = enemy->sprite.right;
-		enemy->sprite.left = ft_get_enemy(game, i, W);
+		enemy->sprite.left = ft_get_hero(game, i, W);
 		enemy->sprite.st_left = enemy->sprite.left;
 		enemy = enemy->next;
 		i++;
@@ -67,16 +67,16 @@ void	ft_put_enemies(t_game *game)
 	entity = game->enemies;
 	while (entity)
 	{
-		mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty, entity->w_pos.x, entity->w_pos.y);
-		if (entity->dir == E && entity->move)
+//		mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty, entity->w_pos.x, entity->w_pos.y);
+		if (entity->dir == E)
 			ft_go_east(game, entity);
-		if (entity->dir == N && entity->move)
+		if (entity->dir == N)
 			ft_go_north(game, entity);
-		if (entity->dir == W && entity->move)
+		if (entity->dir == W)
 			ft_go_west(game, entity);
-		if (entity->dir == S && entity->move)
+		if (entity->dir == S)
 			ft_go_south(game, entity);
-		if (entity->move == 0)
+		if (entity->dir == ST)
 			ft_put_stopped(game, entity);
 		entity = entity->next;
 	}
