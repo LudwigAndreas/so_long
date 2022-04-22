@@ -151,6 +151,13 @@ int			close_game(t_game *game);
 
 void		next_direct(t_game *game, int key);
 
+int	ft_is_mov_legal(t_entity *entity, int dir);
+
+void	ft_update_legal_act(t_game *game, t_entity *entity);
+
+void	ft_move_en(int dir, t_entity *entity, t_game *game);
+void	ft_update_en(t_game *game);
+
 t_pos	ft_new_pos(int x, int y);
 /* Добавляет существ в linked-list */
 void	ft_add_entities(t_game *game);
@@ -175,6 +182,8 @@ t_list	*ft_load_east(t_game *game, char *path, int mode);
 
 void	ft_load_hero(t_game *game);
 void	ft_load_enemies(t_game *game);
+
+void	ft_update_legal_act(t_game *game, t_entity *entity);
 
 void	ft_open_doors(t_game *game);
 
