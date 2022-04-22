@@ -75,10 +75,10 @@ void	ft_put_hero(t_game *game)
 
 void	ft_update_legal_act(t_game *game, t_entity *entity)
 {
-	entity->legal.N = (!ft_strchr("1G", game->map[entity->pos.y - 1][entity->pos.x]));
-	entity->legal.S = (!ft_strchr("1G", game->map[entity->pos.y + 1][entity->pos.x]));
-	entity->legal.E = (!ft_strchr("1G", game->map[entity->pos.y][entity->pos.x + 1]));
-	entity->legal.W = (!ft_strchr("1G", game->map[entity->pos.y][entity->pos.x - 1]));
+	entity->legal.N = (!ft_strchr("1", game->map[entity->pos.y - 1][entity->pos.x]));
+	entity->legal.S = (!ft_strchr("1", game->map[entity->pos.y + 1][entity->pos.x]));
+	entity->legal.E = (!ft_strchr("1", game->map[entity->pos.y][entity->pos.x + 1]));
+	entity->legal.W = (!ft_strchr("1", game->map[entity->pos.y][entity->pos.x - 1]));
 }
 
 int	ft_is_mov_legal(t_entity *entity, int dir)
@@ -147,6 +147,8 @@ void	ft_move(t_entity *entity, t_game *game)
         pos = ft_new_pos(entity->pos.x + 1, entity->pos.y);
     else
         pos = ft_new_pos(0, 0);
+	ft_memset(&game->map[entity->pos.y][entity->pos.x], \
+		'0', game->map[entity->pos.y][entity->pos.x] == 'P');
     if (game->map[pos.y][pos.x] == 'C')
     {
         game->map[pos.y][pos.x] = '0';

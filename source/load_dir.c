@@ -39,8 +39,8 @@ t_list	*ft_load_south(t_game *game, char *path, int mode)
 	{
 		game->heroes->sprite.st_down = run;
 		game->heroes->sprite.down = run;
-		run->next->next->next->next->next = run;
 	}
+	run->next->next->next->next->next = run;
 	return (run);
 }
 
@@ -71,8 +71,8 @@ t_list	*ft_load_west(t_game *game, char *path, int mode)
 	{
 		game->heroes->sprite.st_left = run;
 		game->heroes->sprite.left = run;
-		run->next->next->next->next->next = run;
 	}
+	run->next->next->next->next->next = run;
 	return (run);
 }
 
@@ -103,8 +103,8 @@ t_list	*ft_load_north(t_game *game, char *path, int mode)
 	{
 		game->heroes->sprite.st_up = run;
 		game->heroes->sprite.up = run;
-		run->next->next->next->next->next = run;
 	}
+	run->next->next->next->next->next = run;
 	return (run);
 }
 
@@ -135,8 +135,8 @@ t_list	*ft_load_east(t_game *game, char *path, int mode)
 	{
 		game->heroes->sprite.st_right = run;
 		game->heroes->sprite.right = run;
-		run->next->next->next->next->next = run;
 	}
+	run->next->next->next->next->next = run;
 	return (run);
 }
 

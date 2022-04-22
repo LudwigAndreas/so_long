@@ -32,17 +32,17 @@ void	ft_check_redraw(t_game *game)
 	if (!game->dead_ind)
 		ft_redraw_hero(game);
 //	ft_putendl_fd("1", 1);
-	if (!game->dead_ind && !(game->frames % 2) && !(game->frames % 3))
+	if (!game->dead_ind && !(game->frames % 3))
 		ft_redraw_enemies(game);
 //	ft_putendl_fd("2", 1);
-	if (game->heroes->dir != ST && !game->dead_ind)
+	if ((game->heroes->dir != ST && game->frames != 1) && !game->dead_ind)
 		ft_update_en(game);
 //	ft_putendl_fd("3", 1);
 	if (game->next_dir && !game->dead_ind)
 		ft_next_dir(game);
 //	ft_putendl_fd("4", 1);
-//	if (game->dead_ind && game->frames % 7000 == 0)
-//		ft_death(game);
+	if (game->dead_ind && game->frames % 7000 == 0)
+		ft_death(game);
 	if (game->params->coins == 0)
 		ft_open_doors(game);
 //	ft_putendl_fd("5", 1);
