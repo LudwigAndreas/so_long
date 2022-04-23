@@ -60,7 +60,7 @@ void	ft_put_hero(t_game *game)
 	t_entity	*hero;
 
 	hero = game->heroes;
-	mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty, hero->w_pos.x, hero->w_pos.y);
+//	mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty, hero->w_pos.x, hero->w_pos.y);
 	if (hero->dir == W)
 		ft_go_west(game, hero);
 	if (hero->dir == E)
@@ -73,12 +73,38 @@ void	ft_put_hero(t_game *game)
 		mlx_put_image_to_window(game->mlx_id, game->window, hero->sprite.st->content, hero->w_pos.x, hero->w_pos.y);
 }
 
-void	ft_update_legal_act(t_game *game, t_entity *entity)
+int	ft_is_there_en(t_game *game, int x, int y)
 {
-	entity->legal.N = (!ft_strchr("1E", game->map[entity->pos.y - 1][entity->pos.x]));
-	entity->legal.S = (!ft_strchr("1E", game->map[entity->pos.y + 1][entity->pos.x]));
-	entity->legal.E = (!ft_strchr("1E", game->map[entity->pos.y][entity->pos.x + 1]));
-	entity->legal.W = (!ft_strchr("1E", game->map[entity->pos.y][entity->pos.x - 1]));
+	t_entity	*en2;
+
+	en2 = game->enemies;
+	while (en2)
+	{
+		if (en2->pos.x == x && en2->pos.y == y)
+			return (0);
+		if (en2->pos.x == x && en2->pos.y == y)
+			return (0);
+		if (en2->pos.x == x && en2->pos.y == y)
+			return (0);
+		if (en2->pos.x == x && en2->pos.y == y)
+			return (0);
+		en2 = en2->next;
+	}
+	return (1);
+}
+
+void	ft_update_legal_act(t_game *game, t_entity *en)
+{
+	en->legal.N = (!ft_strchr("1E", game->map[en->pos.y - 1][en->pos.x]));
+	en->legal.S = (!ft_strchr("1E", game->map[en->pos.y + 1][en->pos.x]));
+	en->legal.E = (!ft_strchr("1E", game->map[en->pos.y][en->pos.x + 1]));
+	en->legal.W = (!ft_strchr("1E", game->map[en->pos.y][en->pos.x - 1]));
+	if (game->heroes == en)
+		return;
+	en->legal.N *= ft_is_there_en(game, en->pos.x, en->pos.y - 1);
+	en->legal.S *= ft_is_there_en(game, en->pos.x, en->pos.y + 1);
+	en->legal.E *= ft_is_there_en(game, en->pos.x + 1, en->pos.y);
+	en->legal.W *= ft_is_there_en(game, en->pos.x - 1, en->pos.y);
 }
 
 int	ft_is_mov_legal(t_entity *entity, int dir)
@@ -149,11 +175,11 @@ void	ft_move(t_entity *entity, t_game *game)
         pos = ft_new_pos(0, 0);
 	ft_memset(&game->map[entity->pos.y][entity->pos.x], \
 		'0', game->map[entity->pos.y][entity->pos.x] == 'P');
-    if (game->map[pos.y][pos.x] == 'C')
-    {
-        game->map[pos.y][pos.x] = '0';
-        game->params->coins--;
-    }
+	if (game->map[pos.y][pos.x] == 'C')
+	{
+		game->map[pos.y][pos.x] = '0';
+		game->params->coins--;
+	}
     if (pos.x && pos.y)
         ft_door_checker(game, entity, pos);
 }

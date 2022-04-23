@@ -4,15 +4,19 @@
 /* Действия при нажатиях на кнопку */
 int	key_hook(int key, t_game *game)
 {
-	if (key == ESC_KEY)
+	if (key == ESC_KEY && !game->dead_ind)
 		close_game(game);
-	if ((key == W_KEY || key == UP_KEY) && game->next_dir != N && !game->dead_ind)
+	if ((key == W_KEY || key == UP_KEY) && game->next_dir != N
+		&& !game->dead_ind)
 		next_direct(game, N);
-	if ((key == A_KEY || key == LEFT_KEY) && game->next_dir != W && !game->dead_ind)
+	if ((key == A_KEY || key == LEFT_KEY) && game->next_dir != W
+		&& !game->dead_ind)
 		next_direct(game, W);
-	if ((key == S_KEY || key == DOWN_KEY) && game->next_dir != S && !game->dead_ind)
+	if ((key == S_KEY || key == DOWN_KEY) && game->next_dir != S
+		&& !game->dead_ind)
 		next_direct(game, S);
-	if ((key == D_KEY || key == RIGHT_KEY) && game->next_dir != E && !game->dead_ind)
+	if ((key == D_KEY || key == RIGHT_KEY) && game->next_dir != E
+		&& !game->dead_ind)
 		next_direct(game, E);
 	if (key == E_KEY)
 		game->dead_ind = 1;
@@ -24,9 +28,9 @@ int	close_game(t_game *game)
 {
 	int i;
 
+	i = 0;
 	mlx_clear_window(game->mlx_id, game->window);
 	mlx_destroy_window(game->mlx_id, game->window);
-	i = 0;
 	while (game->map[i])
 	{
 		free(game->map[i]);
@@ -62,7 +66,7 @@ void	ft_new_game(t_game *game, t_params *params)
 	mlx_loop(game->mlx_id);
 }
 
-/*Функция запускает MLX*/
+/* Функция запускает MLX */
 void	init_game(t_params *params, char **map)
 {
 	t_game game;
@@ -73,6 +77,7 @@ void	init_game(t_params *params, char **map)
 	game.all_coins = params->coins;
 	game.map = map;
 	game.mlx_id = mlx_init();
-	game.window = mlx_new_window(game.mlx_id, params->width * SIZE + SCORE_W, params->length * SIZE + LOGO_L, "SO_LONG");
+	game.window = mlx_new_window(game.mlx_id, params->width * SIZE + SCORE_W,
+								 params->length * SIZE + LOGO_L, "SO_LONG");
 	ft_new_game(&game, params);
 }

@@ -67,7 +67,7 @@ void	ft_put_enemies(t_game *game)
 	entity = game->enemies;
 	while (entity)
 	{
-//		mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty, entity->w_pos.x, entity->w_pos.y);
+		mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty, entity->w_pos.x, entity->w_pos.y);
 		if (entity->dir == E)
 			ft_go_east(game, entity);
 		if (entity->dir == N)

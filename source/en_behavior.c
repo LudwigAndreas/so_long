@@ -17,43 +17,52 @@ int ft_check_legal(t_entity *enemy)
 	return (0);
 }
 
-int	ft_get_en_dir(t_game *game, t_entity *enemy)
+int	evclid(t_pos p1, t_pos p2)
+{
+	return (((p1.x - p2.x) * (p1.x - p2.x)) + ((p1.y - p2.y) * (p1.y - p2.y)));
+}
+
+int	ft_get_en_dir(t_game *game, t_entity *en)
 {
 	int			dir;
-	int			x;
-	int 		y;
+	int			posi[4];
+	int			i;
+	int 		min;
 	t_entity	*hero;
 
 	hero = game->heroes;
-	ft_update_legal_act(game, enemy);
-	dir = ft_check_legal(enemy);
-//	ft_putnbr_fd(dir, 1);
+	ft_update_legal_act(game, en);
+	dir = ft_check_legal(en);
 	if (dir)
 		return (dir);
-	x = hero->pos.x - enemy->pos.x;
-	y = hero->pos.y - enemy->pos.y;
-	if (x * x >= y * y && x >= 0 && enemy->legal.E)
+	posi[0] = evclid(ft_new_pos(en->pos.x + 1, en->pos.y),
+					 ft_new_pos(hero->pos.x, hero->pos.y)) * en->legal.E;
+	posi[1] = evclid(ft_new_pos(en->pos.x - 1, en->pos.y),
+					 ft_new_pos(hero->pos.x, hero->pos.y)) * en->legal.W;
+	posi[2] = evclid(ft_new_pos(en->pos.x, en->pos.y + 1),
+					 ft_new_pos(hero->pos.x, hero->pos.y)) * en->legal.S;
+	posi[3] = evclid(ft_new_pos(en->pos.x, en->pos.y - 1),
+					 ft_new_pos(hero->pos.x, hero->pos.y)) * en->legal.N;
+	i = 0;
+	dir = -1;
+	while (i != 4)
+	{
+		if (posi[i] > 0 && (dir == -1 || posi[i] < min))
+		{
+			min = posi[i];
+			dir = i;
+		}
+		i++;
+	}
+	ft_putnbr_fd(dir, 1);
+	if (dir == 0)
 		return (E);
-	if (x * x >= y * y && x < 0 && enemy->legal.W)
+	if (dir == 1)
 		return (W);
-	if (y > 0 && enemy->legal.S)
+	if (dir == 2)
 		return (S);
-	if (y <= 0 && enemy->legal.N)
+	if (dir == 3)
 		return (N);
-//	if (x * x >= y * y && (enemy->legal.E || enemy->legal.W))
-//	{
-//		if (x >= 0 && enemy->legal.E)
-//			return (E);
-//		if (x < 0 && enemy->legal.W)
-//			return (W);
-//	}
-//	else
-//	{
-//		if (y >= 0 && enemy->legal.S)
-//			return (S);
-//		if (y < 0 && enemy->legal.N)
-//			return (N);
-//	}
 	return (ST);
 }
 

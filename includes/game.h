@@ -37,8 +37,8 @@ enum e_direction
 	ST = 0,
 	N = 1,
 	S = -1,
-	E = 2,
-	W = -2
+	E = -2,
+	W = 2
 };
 
 /*Структура для описания позиции*/
@@ -153,7 +153,7 @@ void		next_direct(t_game *game, int key);
 
 int	ft_is_mov_legal(t_entity *entity, int dir);
 
-void	ft_update_legal_act(t_game *game, t_entity *entity);
+void	ft_update_legal_act(t_game *game, t_entity *en);
 
 void	ft_move_en(int dir, t_entity *entity, t_game *game);
 void	ft_update_en(t_game *game);
@@ -183,7 +183,7 @@ t_list	*ft_load_east(t_game *game, char *path, int mode);
 void	ft_load_hero(t_game *game);
 void	ft_load_enemies(t_game *game);
 
-void	ft_update_legal_act(t_game *game, t_entity *entity);
+void	ft_update_legal_act(t_game *game, t_entity *en);
 
 void	ft_open_doors(t_game *game);
 
@@ -195,5 +195,7 @@ void	ft_go_west(t_game *game, t_entity *entity);
 void	ft_go_south(t_game *game, t_entity *entity);
 void	ft_go_east(t_game *game, t_entity *entity);
 void	ft_go_north(t_game *game, t_entity *entity);
+
+int	ft_is_there_en(t_game *game, int x, int y);
 
 #endif
