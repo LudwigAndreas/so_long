@@ -64,6 +64,8 @@ void	init_game(t_params *params, char **map)
 	t_game	game;
 
 	game.mlx_id = mlx_init();
+	if (!game.mlx_id)
+		return;
 	game.params = params;
 	game.length = params->length;
 	game.width = params->width;
