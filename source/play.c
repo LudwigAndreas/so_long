@@ -19,7 +19,7 @@ void	ft_death(t_game *g)
 		g->sprites.death_r->content, g->heroes->w_pos.x, g->heroes->w_pos.y);
 		g->sprites.death_r = g->sprites.death_r->next;
 	}
-	else if (hero->prev_dir == W || hero->prev_dir == S)
+	else
 	{
 		mlx_put_image_to_window(g->mlx_id, g->window, \
 		g->sprites.empty, g->heroes->w_pos.x, g->heroes->w_pos.y);
@@ -39,10 +39,10 @@ void	ft_check_redraw(t_game *game)
 		ft_update_en(game);
 	if (!game->dead_ind && game->next_dir)
 		ft_next_dir(game);
-	if (game->dead_ind && game->frames % 4000 == 0)
-		ft_death(game);
-	if (game->params->coins == 0 && !game->dead_ind)
+	if (!game->dead_ind && game->params->coins == 0)
 		ft_open_doors(game);
+	if (game->dead_ind && !(game->frames % 7000))
+		ft_death(game);
 }
 
 int	ft_update(t_game *game)

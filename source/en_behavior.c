@@ -1,18 +1,14 @@
 #include "../includes/game.h"
 
-int	ft_check_legal(t_entity *enemy)
+int	ft_check_legal(t_entity *en)
 {
-	if (enemy->dir == N && !(enemy->legal.E || enemy->legal.W)
-		&& enemy->legal.N)
+	if (en->dir == N && en->legal.N && !en->legal.E && !en->legal.W)
 		return (N);
-	if (enemy->dir == S && !(enemy->legal.E || enemy->legal.W)
-		&& enemy->legal.S)
+	if (en->dir == S && en->legal.S && !en->legal.E && !en->legal.W)
 		return (S);
-	if (enemy->dir == W && !(enemy->legal.N || enemy->legal.S)
-		&& enemy->legal.W)
+	if (en->dir == W && en->legal.W && !en->legal.N && !en->legal.S)
 		return (W);
-	if (enemy->dir == E && !(enemy->legal.N || enemy->legal.S)
-		&& enemy->legal.E)
+	if (en->dir == E && en->legal.E && !en->legal.N && !en->legal.S)
 		return (E);
 	return (0);
 }
@@ -23,16 +19,17 @@ int	ft_get_euclidean(const int *posi)
 	int	min;
 	int	j;
 
-	i = -1;
-	j = 0;
+	i = 0;
+	j = -1;
 	min = -1;
-	while (++i != 4)
+	while (i != 4)
 	{
 		if (posi[i] >= 0 && (min == -1 || posi[i] < min))
 		{
 			min = posi[i];
 			j = i;
 		}
+		i++;
 	}
 	if (j == 0)
 		return (E);
@@ -55,22 +52,22 @@ int	ft_get_en_dir(t_game *game, t_entity *en)
 		posi[0] = evclid(ft_new_pos(en->pos.x + 1, en->pos.y),
 				ft_new_pos(hero->pos.x, hero->pos.y));
 	else
-		posi[0] = -2;
+		posi[0] = -1;
 	if (en->legal.W)
 		posi[1] = evclid(ft_new_pos(en->pos.x - 1, en->pos.y),
 				ft_new_pos(hero->pos.x, hero->pos.y));
 	else
-		posi[1] = -2;
+		posi[1] = -1;
 	if (en->legal.S)
 		posi[2] = evclid(ft_new_pos(en->pos.x, en->pos.y + 1),
 				ft_new_pos(hero->pos.x, hero->pos.y));
 	else
-		posi[2] = -2;
+		posi[2] = -1;
 	if (en->legal.N)
 		posi[3] = evclid(ft_new_pos(en->pos.x, en->pos.y - 1),
 				ft_new_pos(hero->pos.x, hero->pos.y));
 	else
-		posi[3] = -2;
+		posi[3] = -1;
 	return (ft_get_euclidean(posi));
 }
 
