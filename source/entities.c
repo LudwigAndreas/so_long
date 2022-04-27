@@ -31,9 +31,6 @@ void	ft_en_add_back(t_entity **lst, t_entity *new)
 		*lst = new;
 }
 
-//TODO ft_delete_en
-//TODO free_enemies
-
 void	ft_add_entities(t_game *game)
 {
 	int x;
@@ -60,7 +57,7 @@ void	ft_put_hero(t_game *game)
 	t_entity	*hero;
 
 	hero = game->heroes;
-//	mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty, hero->w_pos.x, hero->w_pos.y);
+	mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty, hero->w_pos.x, hero->w_pos.y);
 	if (hero->dir == W)
 		ft_go_west(game, hero);
 	if (hero->dir == E)
@@ -95,10 +92,15 @@ int	ft_is_there_en(t_game *game, int x, int y)
 
 void	ft_update_legal_act(t_game *game, t_entity *en)
 {
-	en->legal.N = (!ft_strchr("1E", game->map[en->pos.y - 1][en->pos.x]));
-	en->legal.S = (!ft_strchr("1E", game->map[en->pos.y + 1][en->pos.x]));
-	en->legal.E = (!ft_strchr("1E", game->map[en->pos.y][en->pos.x + 1]));
-	en->legal.W = (!ft_strchr("1E", game->map[en->pos.y][en->pos.x - 1]));
+	char *s;
+
+	s = ft_substr("1E", 0, 2);
+	if (en == game->heroes)
+		s = ft_substr("1E", 0, 1);
+	en->legal.N = (!ft_strchr(s, game->map[en->pos.y - 1][en->pos.x]));
+	en->legal.S = (!ft_strchr(s, game->map[en->pos.y + 1][en->pos.x]));
+	en->legal.E = (!ft_strchr(s, game->map[en->pos.y][en->pos.x + 1]));
+	en->legal.W = (!ft_strchr(s, game->map[en->pos.y][en->pos.x - 1]));
 	if (game->heroes == en)
 		return;
 	en->legal.N *= ft_is_there_en(game, en->pos.x, en->pos.y - 1);

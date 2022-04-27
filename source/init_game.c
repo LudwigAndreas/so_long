@@ -71,12 +71,12 @@ void	init_game(t_params *params, char **map)
 {
 	t_game game;
 
+	game.mlx_id = mlx_init();
 	game.params = params;
 	game.length = params->length;
 	game.width = params->width;
 	game.all_coins = params->coins;
 	game.map = map;
-	game.mlx_id = mlx_init();
 	game.window = mlx_new_window(game.mlx_id, params->width * SIZE + SCORE_W,
 								 params->length * SIZE + LOGO_L, "SO_LONG");
 	ft_new_game(&game, params);

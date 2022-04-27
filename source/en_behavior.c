@@ -54,7 +54,7 @@ int	ft_get_en_dir(t_game *game, t_entity *en)
 		}
 		i++;
 	}
-	ft_putnbr_fd(dir, 1);
+//	ft_putnbr_fd(dir, 1);
 	if (dir == 0)
 		return (E);
 	if (dir == 1)
@@ -88,6 +88,11 @@ void	ft_move_en(int dir, t_entity *entity, t_game *game)
 	pos = ft_new_pos(entity->pos.x, entity->pos.y);
 	ft_memset(&game->map[entity->pos.y][entity->pos.x], \
 		'0', game->map[entity->pos.y][entity->pos.x] == 'G');
+	if (game->heroes->pos.x == entity->pos.x && game->heroes->pos.y == entity->pos.y)
+	{
+		game->dead_ind = 1;
+		entity->pos = pos;
+	}
 	if (dir == N)
 		entity->pos.y--;
 	if (dir == S)
@@ -96,10 +101,10 @@ void	ft_move_en(int dir, t_entity *entity, t_game *game)
 		entity->pos.x++;
 	if (dir == W)
 		entity->pos.x--;
-	entity->dir = dir;
 	if (game->heroes->pos.x == entity->pos.x && game->heroes->pos.y == entity->pos.y)
 	{
 		game->dead_ind = 1;
 		entity->pos = pos;
 	}
+	entity->dir = dir;
 }
