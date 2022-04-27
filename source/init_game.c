@@ -1,5 +1,8 @@
 #include "../includes/map.h"
 #include "../includes/game.h"
+#include <stdio.h>
+#include <string.h>
+#include <errno.h>
 
 /* Действия при нажатиях на кнопку */
 int	key_hook(int key, t_game *game)
@@ -18,8 +21,6 @@ int	key_hook(int key, t_game *game)
 	if ((key == D_KEY || key == RIGHT_KEY) && game->next_dir != E
 		&& !game->dead_ind)
 		next_direct(game, E);
-	if (key == E_KEY)
-		game->dead_ind = 1;
 	return (0);
 }
 
@@ -30,7 +31,6 @@ int	close_game(t_game *game)
 
 	i = 0;
 	mlx_clear_window(game->mlx_id, game->window);
-	mlx_destroy_window(game->mlx_id, game->window);
 	while (game->map[i])
 	{
 		free(game->map[i]);
@@ -38,6 +38,7 @@ int	close_game(t_game *game)
 	}
 	free(game->map);
 	free(game->heroes);
+	mlx_destroy_window(game->mlx_id, game->window);
 	exit(0);
 	return (0);
 }
@@ -45,24 +46,17 @@ int	close_game(t_game *game)
 /*Функция инициирует игру*/
 void	ft_new_game(t_game *game, t_params *params)
 {
-	game->frames = 1;
-	game->all_coins = params->coins;
-	game->dead_ind = 0;
-	game->moves = 0;
-	game->redraw = 1;
-	game->heroes = NULL;
-	game->enemies = NULL;
-	game->g_rate = GAME_RATE;
-	game->width = params->width * SIZE;
-	game->length = params->length * SIZE + LOGO_L;
-	game->sprites = init_sprites(game);
-	game->next_dir = 0;
-	ft_add_entities(game);
 	ft_load_hero(game);
+	game->next_dir = 0;
+	game->dead_ind = 0;
+	game->all_coins = params->coins;
+	game->g_rate = GAME_RATE;
+//	usleep(10);
+	game->redraw = 1;
 	ft_load_enemies(game);
 	mlx_loop_hook(game->mlx_id, ft_update, (void *)game);
-	mlx_key_hook(game->window, key_hook, (void *) game);
 	mlx_hook(game->window, 17, 0, close_game, (void *)game);
+	mlx_key_hook(game->window, key_hook, (void *) game);
 	mlx_loop(game->mlx_id);
 }
 
@@ -79,5 +73,13 @@ void	init_game(t_params *params, char **map)
 	game.map = map;
 	game.window = mlx_new_window(game.mlx_id, params->width * SIZE + SCORE_W,
 								 params->length * SIZE + LOGO_L, "SO_LONG");
+	game.frames = 1;
+	game.moves = 0;
+	game.width = params->width * SIZE;
+	game.length = params->length * SIZE + LOGO_L;
+	game.sprites = init_sprites(&game);
+	game.heroes = NULL;
+	game.enemies = NULL;
+	ft_add_entities(&game);
 	ft_new_game(&game, params);
 }

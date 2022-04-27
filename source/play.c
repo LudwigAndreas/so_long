@@ -35,11 +35,11 @@ void	ft_check_redraw(t_game *game)
 		ft_redraw_enemies(game);
 	if (!game->dead_ind && game->next_dir != ST)
 		ft_update_en(game);
-	if (game->next_dir && !game->dead_ind)
+	if (!game->dead_ind && game->next_dir)
 		ft_next_dir(game);
-	if (game->dead_ind && game->frames % 7000 == 0)
+	if (game->dead_ind && game->frames % 4000 == 0)
 		ft_death(game);
-	if (game->params->coins == 0)
+	if (game->params->coins == 0 && !game->dead_ind)
 		ft_open_doors(game);
 }
 

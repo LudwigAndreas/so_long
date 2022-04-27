@@ -13,15 +13,13 @@ t_params	ft_null_params(void)
 	return (params);
 }
 
-void	map_error(char *str, char *to_free1, char *to_free_2, t_params *params)
+void	map_error(char *str, char *to_free1, char *to_free_2)
 {
 	ft_putendl_fd(str, 2);
 	if (to_free1 != NULL)
 		free(to_free1);
 	if (to_free_2 != NULL)
 		free(to_free_2);
-	if (params != NULL)
-		free(params);
 	exit(0);
 }
 
@@ -29,13 +27,13 @@ char	**map_checker(int argc, char **argv, t_params *params)
 {
 	int		fd;
 
-	if (argc < 2)
-		map_error("Invalid number of arguments", NULL, NULL, NULL);
+	if (argc != 2)
+		map_error("Invalid number of arguments", NULL, NULL);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
-		map_error("File not found", NULL, NULL, NULL);
+		map_error("File not found", NULL, NULL);
 	if (ft_strncmp(&argv[1][ft_strlen(argv[1]) - 4], ".ber", 4) != 0)
-		map_error("Invalid file extension", NULL, NULL, NULL);
+		map_error("Invalid file extension", NULL, NULL);
 	return (map_parser(fd, params));
 }
 

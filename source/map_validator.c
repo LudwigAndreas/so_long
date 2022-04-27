@@ -21,12 +21,12 @@ void	line_validator(char *line, t_params *params, char *out)
 	}
 	params->length++;
 	if (line[0] != '1' && line[ft_strlen(line) - 1] != '1')
-		map_error("Map must be surrounded by walls", line, out, params);
+		map_error("Map must be surrounded by walls", line, out);
 	if (params->width != 0 && params->width != (int ) ft_strlen(line) - 1)
-		map_error("Map must be rectangular", line, out, params);
-	params->width = ft_strlen(line) - 1;
+		map_error("Map must be rectangular", line, out);
+	params->width = (int ) ft_strlen(line) - 1;
 	if (i != (int ) ft_strlen(line))
-		map_error("Invalid symbol(s) in map", line, out, params);
+		map_error("Invalid symbol(s) in map", line, out);
 }
 
 void	check_rect(char *line, char *out, t_params *params)
@@ -36,23 +36,23 @@ void	check_rect(char *line, char *out, t_params *params)
 
 	if (line != NULL)
 	{
-		len = ft_strlen(line);
+		len = (int ) ft_strlen(line);
 		i = 0;
 		while (i < len - 1) {
 			if (line[i] != '1')
-				map_error("Map must be surrounded by walls!", line, out, params);
+				map_error("Map must be surrounded by walls!", line, out);
 			i++;
 		}
 	}
 	else
 	{
-		i = ft_strlen(out);
+		i = (int ) ft_strlen(out);
 		len = params->width;
 		i -= 2;
 		while (len > 0)
 		{
 			if (out[i - len + 1] != '1')
-				map_error("Map must be surrounded by walls!", line, out, params);
+				map_error("Map must be surrounded by walls!", line, out);
 			len--;
 		}
 	}
@@ -61,12 +61,12 @@ void	check_rect(char *line, char *out, t_params *params)
 void	param_validator(t_params *params, char *out)
 {
 	if (params->width == 0 || params->length == 0)
-		map_error("Map is empty", out, NULL, params);
+		map_error("Map is empty", out, NULL);
 	if (!params->exits)
-		map_error("Invalid number of exits", out, NULL, params);
-	if (!params->players)
-		map_error("Invalid number of players", out, NULL, params);
+		map_error("Invalid number of exits", out, NULL);
+	if (params->players != 1)
+		map_error("Invalid number of players", out, NULL);
 	if (!params->coins)
-		map_error("Invalid number of coins", out, NULL, params);
+		map_error("Invalid number of coins", out, NULL);
 	check_rect(NULL, out, params);
 }

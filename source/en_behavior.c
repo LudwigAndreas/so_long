@@ -54,7 +54,6 @@ int	ft_get_en_dir(t_game *game, t_entity *en)
 		}
 		i++;
 	}
-//	ft_putnbr_fd(dir, 1);
 	if (dir == 0)
 		return (E);
 	if (dir == 1)

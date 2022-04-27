@@ -43,6 +43,8 @@ t_font  ft_load_font(t_game *game)
 	int size;
 
 	size = SIZE;
+	game->sprites.font.zero = mlx_xpm_file_to_image(game->mlx_id, \
+		"resources/sprites/digits/0.xpm", &size, &size);
     game->sprites.font.one = mlx_xpm_file_to_image(game->mlx_id, \
 		"resources/sprites/digits/1.xpm", &size, &size);
 	game->sprites.font.two = mlx_xpm_file_to_image(game->mlx_id, \
@@ -61,8 +63,6 @@ t_font  ft_load_font(t_game *game)
 		"resources/sprites/digits/8.xpm", &size, &size);
 	game->sprites.font.nine = mlx_xpm_file_to_image(game->mlx_id, \
 		"resources/sprites/digits/9.xpm", &size, &size);
-	game->sprites.font.zero = mlx_xpm_file_to_image(game->mlx_id, \
-		"resources/sprites/digits/0.xpm", &size, &size);
 	return (game->sprites.font);
 }
 
@@ -71,6 +71,8 @@ t_sprites	init_sprites(t_game *game)
 	int size;
 
 	size = SIZE;
+	game->sprites.hero_dying_r = load_death_r(game);
+	game->sprites.hero_dying_l = load_death_l(game);
 	game->sprites.empty = mlx_xpm_file_to_image(game->mlx_id, \
 		"resources/sprites/bg.xpm", &size, &size);
 	game->sprites.wall = mlx_xpm_file_to_image(game->mlx_id, \
@@ -87,8 +89,6 @@ t_sprites	init_sprites(t_game *game)
     	"resources/sprites/score.xpm", &size, &size);
 	game->sprites.open_ex = mlx_xpm_file_to_image(game->mlx_id, \
     	"resources/sprites/opened_door.xpm", &size, &size);
-    game->sprites.hero_dying_r = load_death_r(game);
-	game->sprites.hero_dying_l = load_death_l(game);
 	game->sprites.font = ft_load_font(game);
 	return (game->sprites);
 }

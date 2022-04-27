@@ -29,7 +29,6 @@ enum e_keys
 	LEFT_KEY = 123,
 	DOWN_KEY = 125,
 	RIGHT_KEY = 124,
-	E_KEY = 14
 };
 
 enum e_direction
