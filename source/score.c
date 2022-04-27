@@ -46,13 +46,13 @@ void	ft_put_score(t_game *game)
 	}
 }
 
-
-void    ft_update_score(t_game *game)
+void	ft_update_score(t_game *game)
 {
-	mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.score, game->width, 0);
+	mlx_put_image_to_window(game->mlx_id, game->window,
+		game->sprites.score, game->width, 0);
 	ft_putstr_fd("Number of moves: ", 1);
 	ft_putnbr_fd(game->moves, 1);
-	ft_putendl_fd("", 1);
+	ft_putstr_fd("\r", 1);
 	ft_put_score(game);
 }
 

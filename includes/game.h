@@ -86,8 +86,8 @@ typedef struct	s_sprites
 	void			*empty;
 	void			*hero;
 	void			*coin;
-	t_list 			*hero_dying_r;
-	t_list			*hero_dying_l;
+	t_list 			*death_r;
+	t_list			*death_l;
 	t_font          font;
 }				t_sprites;
 
@@ -154,7 +154,7 @@ int	ft_is_mov_legal(t_entity *entity, int dir);
 
 void	ft_update_legal_act(t_game *game, t_entity *en);
 
-void	ft_move_en(int dir, t_entity *entity, t_game *game);
+void	ft_move_en(int dir, t_entity *entity, t_game *g);
 void	ft_update_en(t_game *game);
 
 t_pos	ft_new_pos(int x, int y);
@@ -189,6 +189,8 @@ void	ft_open_doors(t_game *game);
 void	next_direct(t_game *game, int dir);
 
 void    ft_update_score(t_game *game);
+
+int	evclid(t_pos p1, t_pos p2);
 
 void	ft_go_west(t_game *game, t_entity *entity);
 void	ft_go_south(t_game *game, t_entity *entity);

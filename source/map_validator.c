@@ -2,7 +2,7 @@
 
 void	line_validator(char *line, t_params *params, char *out)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (line[i])
@@ -38,10 +38,10 @@ void	check_rect(char *line, char *out, t_params *params)
 	{
 		len = (int ) ft_strlen(line);
 		i = 0;
-		while (i < len - 1) {
-			if (line[i] != '1')
+		while (i < len - 1)
+		{
+			if (line[i++] != '1')
 				map_error("Map must be surrounded by walls!", line, out);
-			i++;
 		}
 	}
 	else

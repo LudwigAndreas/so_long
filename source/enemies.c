@@ -44,20 +44,20 @@ void	ft_load_enemies(t_game *game)
 	}
 }
 
-void	ft_put_stopped(t_game *game, t_entity *entity)
+void	ft_put_stopped(t_game *game, t_entity *en)
 {
-	if (entity->dir == N)
+	if (en->dir == N)
 		mlx_put_image_to_window(game->mlx_id, game->window,
-			entity->sprite.st_up->content, entity->pos.x * SIZE, entity->pos.y * SIZE);
-	if (entity->dir == E || entity->dir == ST)
+			en->sprite.st_up->content, en->pos.x * SIZE, en->pos.y * SIZE);
+	if (en->dir == E || en->dir == ST)
 		mlx_put_image_to_window(game->mlx_id, game->window,
-			entity->sprite.st_right->content, entity->pos.x * SIZE, entity->pos.y * SIZE);
-	if (entity->dir == S)
+			en->sprite.st_right->content, en->pos.x * SIZE, en->pos.y * SIZE);
+	if (en->dir == S)
 		mlx_put_image_to_window(game->mlx_id, game->window,
-			entity->sprite.st_down->content, entity->pos.x * SIZE, entity->pos.y * SIZE);
-	if (entity->dir == W)
+			en->sprite.st_down->content, en->pos.x * SIZE, en->pos.y * SIZE);
+	if (en->dir == W)
 		mlx_put_image_to_window(game->mlx_id, game->window,
-			entity->sprite.st_left->content, entity->pos.x * SIZE, entity->pos.y * SIZE);
+			en->sprite.st_left->content, en->pos.x * SIZE, en->pos.y * SIZE);
 }
 
 void	ft_put_enemies(t_game *game)
@@ -67,7 +67,8 @@ void	ft_put_enemies(t_game *game)
 	entity = game->enemies;
 	while (entity)
 	{
-		mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty, entity->w_pos.x, entity->w_pos.y);
+		mlx_put_image_to_window(game->mlx_id, game->window,
+			game->sprites.empty, entity->w_pos.x, entity->w_pos.y);
 		if (entity->dir == E)
 			ft_go_east(game, entity);
 		if (entity->dir == N)

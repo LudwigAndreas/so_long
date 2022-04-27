@@ -16,7 +16,7 @@ t_list	*ft_load_south(t_game *game, char *path, int mode)
 {
 	t_list	*run;
 	int		size;
-	char 	*name;
+	char	*name;
 	int		i;
 	char	*s;
 
@@ -27,17 +27,14 @@ t_list	*ft_load_south(t_game *game, char *path, int mode)
 	while (i != 6)
 	{
 		s = ft_strjoin(path, name);
-		ft_lstadd_back(&run, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id,\
+		ft_lstadd_back(&run, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id, \
 		s, &size, &size)));
 		ft_memset(&name[5], '1' + i, 1);
 		free(s);
 		i++;
 	}
 	if (mode)
-	{
 		game->heroes->sprite.st_down = run;
-		game->heroes->sprite.down = run;
-	}
 	run->next->next->next->next->next = run;
 	free(name);
 	return (run);
@@ -47,7 +44,7 @@ t_list	*ft_load_west(t_game *game, char *path, int mode)
 {
 	t_list	*run;
 	int		size;
-	char 	*name;
+	char	*name;
 	int		i;
 	char	*s;
 
@@ -58,17 +55,14 @@ t_list	*ft_load_west(t_game *game, char *path, int mode)
 	while (i != 6)
 	{
 		s = ft_strjoin(path, name);
-		ft_lstadd_back(&run, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id,\
+		ft_lstadd_back(&run, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id, \
 		s, &size, &size)));
 		ft_memset(&name[5], '1' + i, 1);
 		free(s);
 		i++;
 	}
 	if (mode)
-	{
 		game->heroes->sprite.st_left = run;
-		game->heroes->sprite.left = run;
-	}
 	run->next->next->next->next->next = run;
 	free(name);
 	return (run);
@@ -78,7 +72,7 @@ t_list	*ft_load_north(t_game *game, char *path, int mode)
 {
 	t_list	*run;
 	int		size;
-	char 	*name;
+	char	*name;
 	int		i;
 	char	*s;
 
@@ -89,17 +83,14 @@ t_list	*ft_load_north(t_game *game, char *path, int mode)
 	while (i != 6)
 	{
 		s = ft_strjoin(path, name);
-		ft_lstadd_back(&run, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id,\
+		ft_lstadd_back(&run, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id, \
 		s, &size, &size)));
 		ft_memset(&name[3], '1' + i, 1);
 		free(s);
 		i++;
 	}
 	if (mode)
-	{
 		game->heroes->sprite.st_up = run;
-		game->heroes->sprite.up = run;
-	}
 	run->next->next->next->next->next = run;
 	free(name);
 	return (run);
@@ -109,7 +100,7 @@ t_list	*ft_load_east(t_game *game, char *path, int mode)
 {
 	t_list	*run;
 	int		size;
-	char 	*name;
+	char	*name;
 	int		i;
 	char	*s;
 
@@ -120,17 +111,14 @@ t_list	*ft_load_east(t_game *game, char *path, int mode)
 	while (i != 6)
 	{
 		s = ft_strjoin(path, name);
-		ft_lstadd_back(&run, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id,\
+		ft_lstadd_back(&run, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id, \
 		s, &size, &size)));
 		ft_memset(&name[6], '1' + i, 1);
 		free(s);
 		i++;
 	}
 	if (mode)
-	{
 		game->heroes->sprite.st_right = run;
-		game->heroes->sprite.right = run;
-	}
 	run->next->next->next->next->next = run;
 	free(name);
 	return (run);
@@ -138,12 +126,13 @@ t_list	*ft_load_east(t_game *game, char *path, int mode)
 
 void	ft_load_hero(t_game *game)
 {
-	t_entity *hero;
-
-	hero = game->heroes;
-	hero->sprite.st = ft_lstnew(game->sprites.hero);
-	hero->sprite.left = ft_load_west(game, "resources/sprites/pl/", 1);
-	hero->sprite.right = ft_load_east(game, "resources/sprites/pl/", 1);
-	hero->sprite.up = ft_load_north(game, "resources/sprites/pl/", 1);
-	hero->sprite.down = ft_load_south(game, "resources/sprites/pl/", 1);
+	game->heroes->sprite.st = ft_lstnew(game->sprites.hero);
+	game->heroes->sprite.left = ft_load_west(game, "resources/sprites/pl/", 1);
+	game->heroes->sprite.st_left = game->heroes->sprite.left;
+	game->heroes->sprite.right = ft_load_east(game, "resources/sprites/pl/", 1);
+	game->heroes->sprite.st_right = game->heroes->sprite.right;
+	game->heroes->sprite.up = ft_load_north(game, "resources/sprites/pl/", 1);
+	game->heroes->sprite.st_up = game->heroes->sprite.up;
+	game->heroes->sprite.down = ft_load_south(game, "resources/sprites/pl/", 1);
+	game->heroes->sprite.st_down = game->heroes->sprite.down;
 }

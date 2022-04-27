@@ -1,5 +1,4 @@
 PROJ_NAME		:= so_long
-MAIN_DIR		:=
 NAME			:= $(addprefix $(MAIN_DIR), $(PROJ_NAME))
 CFLAGS			:= -Wall -Wextra -Werror -c
 OFLAGS			:= -Wall -Wextra -Werror -o
@@ -37,10 +36,10 @@ EXEC			:= $(addprefix ./, $(NAME))
 MINILIBX		:= mlx/
 LMLX			:= -lmlx -framework OpenGL -framework AppKit
 
-all: obj $(NAME)
+all: objects $(NAME)
 
-obj: $(SRCS)
-	@mkdir -p $(OBJ_DIR)
+objects:
+	mkdir -p $(OBJ_DIR)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	gcc -Imlx $(CFLAGS) $< -o $@
@@ -57,7 +56,7 @@ $(MAPS):
 
 clean:
 	make clean -C $(LIBFTDIR_PATH)
-	rm -rf $(OBJ_DIR)
+	rm -rf objects/
 
 fclean: clean
 	make fclean -C $(LIBFTDIR_PATH)

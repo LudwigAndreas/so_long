@@ -27,7 +27,7 @@ int	key_hook(int key, t_game *game)
 /* Выход из игры с освобождением всей памяти */
 int	close_game(t_game *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	mlx_clear_window(game->mlx_id, game->window);
@@ -44,14 +44,12 @@ int	close_game(t_game *game)
 }
 
 /*Функция инициирует игру*/
-void	ft_new_game(t_game *game, t_params *params)
+void	ft_new_game(t_game *game)
 {
 	ft_load_hero(game);
 	game->next_dir = 0;
 	game->dead_ind = 0;
-	game->all_coins = params->coins;
 	game->g_rate = GAME_RATE;
-//	usleep(10);
 	game->redraw = 1;
 	ft_load_enemies(game);
 	mlx_loop_hook(game->mlx_id, ft_update, (void *)game);
@@ -63,7 +61,7 @@ void	ft_new_game(t_game *game, t_params *params)
 /* Функция запускает MLX */
 void	init_game(t_params *params, char **map)
 {
-	t_game game;
+	t_game	game;
 
 	game.mlx_id = mlx_init();
 	game.params = params;
@@ -72,7 +70,7 @@ void	init_game(t_params *params, char **map)
 	game.all_coins = params->coins;
 	game.map = map;
 	game.window = mlx_new_window(game.mlx_id, params->width * SIZE + SCORE_W,
-								 params->length * SIZE + LOGO_L, "SO_LONG");
+			params->length * SIZE + LOGO_L, "SO_LONG");
 	game.frames = 1;
 	game.moves = 0;
 	game.width = params->width * SIZE;
@@ -81,5 +79,6 @@ void	init_game(t_params *params, char **map)
 	game.heroes = NULL;
 	game.enemies = NULL;
 	ft_add_entities(&game);
-	ft_new_game(&game, params);
+	game.all_coins = params->coins;
+	ft_new_game(&game);
 }

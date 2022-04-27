@@ -6,24 +6,26 @@ void	ft_death(t_game *g)
 
 	hero = g->heroes;
 	g->heroes->move = 0;
-	if (g->sprites.hero_dying_r == NULL || g->sprites.hero_dying_l == NULL)
+	if (g->sprites.death_r == NULL || g->sprites.death_l == NULL)
 	{
 		ft_putstr_fd("\nGAME OVER!\nLet's try again!\n\n", 1);
 		close_game(g);
 	}
-	if (hero->prev_dir == E || hero->prev_dir == N) {
+	if (hero->prev_dir == E || hero->prev_dir == N)
+	{
 		mlx_put_image_to_window(g->mlx_id, g->window, \
-        g->sprites.empty, g->heroes->w_pos.x, g->heroes->w_pos.y);
+		g->sprites.empty, g->heroes->w_pos.x, g->heroes->w_pos.y);
 		mlx_put_image_to_window(g->mlx_id, g->window, \
-        g->sprites.hero_dying_r->content, g->heroes->w_pos.x, g->heroes->w_pos.y);
-		g->sprites.hero_dying_r = g->sprites.hero_dying_r->next;
+		g->sprites.death_r->content, g->heroes->w_pos.x, g->heroes->w_pos.y);
+		g->sprites.death_r = g->sprites.death_r->next;
 	}
-	else if (hero->prev_dir == W || hero->prev_dir == S) {
+	else if (hero->prev_dir == W || hero->prev_dir == S)
+	{
 		mlx_put_image_to_window(g->mlx_id, g->window, \
-        g->sprites.empty, g->heroes->w_pos.x, g->heroes->w_pos.y);
+		g->sprites.empty, g->heroes->w_pos.x, g->heroes->w_pos.y);
 		mlx_put_image_to_window(g->mlx_id, g->window, \
-        g->sprites.hero_dying_l->content, g->heroes->w_pos.x, g->heroes->w_pos.y);
-		g->sprites.hero_dying_l = g->sprites.hero_dying_l->next;
+		g->sprites.death_l->content, g->heroes->w_pos.x, g->heroes->w_pos.y);
+		g->sprites.death_l = g->sprites.death_l->next;
 	}
 }
 
@@ -53,7 +55,7 @@ int	ft_update(t_game *game)
 	if (game->redraw)
 	{
 		ft_put_enemies(game);
-		mlx_put_image_to_window(game->mlx_id, game->window,\
+		mlx_put_image_to_window(game->mlx_id, game->window, \
 		game->sprites.logo, (game->width - LOGO_W) / 2, game->length - LOGO_L);
 		ft_update_score(game);
 		y = 0;
@@ -71,4 +73,3 @@ int	ft_update(t_game *game)
 	}
 	return (0);
 }
-
