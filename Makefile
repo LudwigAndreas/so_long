@@ -42,13 +42,12 @@ objects:
 	mkdir -p $(OBJ_DIR)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	gcc -Imlx $(CFLAGS) $< -o $@
+	gcc -o2 -Imlx $(CFLAGS) $< -o $@
 
 $(NAME): $(OBJS) $(HEADER)
 	make -C $(LIBFTDIR_PATH)
 	make -C $(MINILIBX)
-	gcc $(OBJS) $(LIBFTDIR_PATH)libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-	#gcc -I /usr/X11/include -g -l mlx -framework OpenGL -framework AppKit $(OBJS) $(LIBFTDIR_PATH)libft.a -o $(NAME)
+	gcc -o2 $(OBJS) $(LIBFTDIR_PATH)libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 play: all $(MAPS)
 
 $(MAPS):
@@ -60,6 +59,7 @@ clean:
 
 fclean: clean
 	make fclean -C $(LIBFTDIR_PATH)
+	make clean -C mlx
 	rm -f $(NAME)
 
 re: fclean all

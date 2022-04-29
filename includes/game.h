@@ -1,7 +1,7 @@
 #ifndef GAME_H
 # define GAME_H
 
-# include <mlx.h>
+# include "../mlx/mlx.h"
 # include "../libft/libft.h"
 # include "map.h"
 
@@ -88,6 +88,8 @@ typedef struct	s_sprites
 	void			*coin;
 	t_list 			*death_r;
 	t_list			*death_l;
+    t_list          *death_st_r;
+    t_list          *death_st_l;
 	t_font          font;
 }				t_sprites;
 
@@ -143,6 +145,8 @@ char		**ft_duplicate_matrix(char **map);
 t_sprites	init_sprites(t_game *game);
 /* Update frame or part of frame */
 int			ft_update(t_game *game);
+
+void    free_sprites(t_game *game);
 /* render not animated parts */
 void		ft_render_map(t_game *game, int x, int y);
 /* Выход из игры с освобождением всей памяти */

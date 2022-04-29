@@ -7,8 +7,10 @@
 /* Действия при нажатиях на кнопку */
 int	key_hook(int key, t_game *game)
 {
-	if (key == ESC_KEY && !game->dead_ind)
-		close_game(game);
+	if (key == ESC_KEY && !game->dead_ind) {
+        ft_putendl_fd("Game was ended by player\n", 1);
+        close_game(game);
+    }
 	if ((key == W_KEY || key == UP_KEY) && game->next_dir != N
 		&& !game->dead_ind)
 		next_direct(game, N);
@@ -27,19 +29,19 @@ int	key_hook(int key, t_game *game)
 /* Выход из игры с освобождением всей памяти */
 int	close_game(t_game *game)
 {
-	int	i;
+	int i;
 
-	i = 0;
-	mlx_clear_window(game->mlx_id, game->window);
-	while (game->map[i])
+    mlx_clear_window(game->mlx_id, game->window);
+    mlx_destroy_window(game->mlx_id, game->window);
+    free_sprites(game);
+    i = 0;
+    while (game->map[i])
 	{
-		free(game->map[i]);
-		i++;
-	}
-	free(game->map);
-	free(game->heroes);
-	mlx_destroy_window(game->mlx_id, game->window);
-	exit(0);
+        free(game->map[i]);
+        i++;
+    }
+    free(game->map);
+    exit(0);
 	return (0);
 }
 
@@ -47,11 +49,13 @@ int	close_game(t_game *game)
 void	ft_new_game(t_game *game)
 {
 	ft_load_hero(game);
-	game->next_dir = 0;
-	game->dead_ind = 0;
-	game->g_rate = GAME_RATE;
-	game->redraw = 1;
-	ft_load_enemies(game);
+    game->sprites.hero = NULL;
+    game->next_dir = 0;
+    game->heroes->sprite.st = game->heroes->sprite.st_right;
+    game->dead_ind = 0;
+    game->g_rate = GAME_RATE;
+    game->redraw = 1;
+    ft_load_enemies(game);
 	mlx_loop_hook(game->mlx_id, ft_update, (void *)game);
 	mlx_hook(game->window, 17, 0, close_game, (void *)game);
 	mlx_key_hook(game->window, key_hook, (void *) game);
@@ -80,7 +84,7 @@ void	init_game(t_params *params, char **map)
 	game.sprites = init_sprites(&game);
 	game.heroes = NULL;
 	game.enemies = NULL;
-	ft_add_entities(&game);
-	game.all_coins = params->coins;
+    game.all_coins = params->coins;
+    ft_add_entities(&game);
 	ft_new_game(&game);
 }

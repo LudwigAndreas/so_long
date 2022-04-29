@@ -17,11 +17,51 @@
     <list default="true" id="7540ccd2-9ba6-4c54-9029-cbba9d0f7f70" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cache-v2-2a260b3f0eb9dff48d81.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-d00624c433a36e4061b7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-04-27T08-14-50-0397.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-501b304f510d0e4af5c7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CMakeCCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/en_behavior.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/en_behavior.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/enemies.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/enemies.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/entities.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/entities.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/ft_go_dir.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/ft_go_dir.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/init_game.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/init_game.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/load_dir.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/load_dir.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/play.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/play.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/redraw.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/redraw.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/score.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/score.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/sprites.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/sprites.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/utils.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/utils.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/so_long" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/so_long" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/game.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/game.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libft/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/objects/so_long_objs/en_behavior.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/so_long_objs/en_behavior.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/objects/so_long_objs/enemies.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/so_long_objs/enemies.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/objects/so_long_objs/entities.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/so_long_objs/entities.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/objects/so_long_objs/ft_go_dir.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/so_long_objs/ft_go_dir.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/objects/so_long_objs/init_game.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/so_long_objs/init_game.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/objects/so_long_objs/load_dir.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/so_long_objs/load_dir.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/objects/so_long_objs/play.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/so_long_objs/play.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/objects/so_long_objs/redraw.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/so_long_objs/redraw.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/objects/so_long_objs/score.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/so_long_objs/score.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/objects/so_long_objs/sprites.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/so_long_objs/sprites.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/objects/so_long_objs/utils.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/so_long_objs/utils.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/maps/valid_maps/full1_map.ber" beforeDir="false" afterPath="$PROJECT_DIR$/resources/maps/valid_maps/full1_map.ber" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/so_long" beforeDir="false" afterPath="$PROJECT_DIR$/so_long" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/init_game.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/init_game.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/sprites.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/sprites.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/utils.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +98,7 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -66,9 +107,9 @@
     <property name="structure.view.defaults.are.configured" value="true" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="so_long" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="resources/maps/valid_maps/full1_map.ber" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$ContentRoot$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="so_long" TARGET_NAME="so_long" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="so_long" RUN_TARGET_NAME="so_long">
@@ -89,6 +130,7 @@
       <workItem from="1650711180995" duration="9337000" />
       <workItem from="1650990171758" duration="44000" />
       <workItem from="1651047262150" duration="13963000" />
+      <workItem from="1651235222790" duration="6950000" />
     </task>
     <servers />
   </component>
@@ -118,8 +160,11 @@
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/source/init_game.c" line="57">
+      <inline-watch fileUrl="file://$PROJECT_DIR$/source/init_game.c" line="61">
         <watch expression="game" />
+      </inline-watch>
+      <inline-watch fileUrl="file://$PROJECT_DIR$/source/utils.c" line="38">
+        <watch expression="anim" />
       </inline-watch>
     </watches-manager>
   </component>
