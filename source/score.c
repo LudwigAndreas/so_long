@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   score.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lsherry <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/29 18:13:10 by lsherry           #+#    #+#             */
+/*   Updated: 2022/04/29 18:13:14 by lsherry          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/game.h"
 
 void	ft_put_font(t_game *g, int digit, int i)
@@ -61,4 +73,9 @@ void	next_direct(t_game *game, int dir)
 	game->moves++;
 	ft_update_score(game);
 	game->next_dir = dir;
+}
+
+int	evclid(t_pos p1, t_pos p2)
+{
+	return (((p1.x - p2.x) * (p1.x - p2.x)) + ((p1.y - p2.y) * (p1.y - p2.y)));
 }

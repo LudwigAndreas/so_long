@@ -42,12 +42,12 @@ objects:
 	mkdir -p $(OBJ_DIR)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	gcc -o2 -Imlx $(CFLAGS) $< -o $@
+	gcc -o2 -MD -Imlx $(CFLAGS) $< -o $@
 
 $(NAME): $(OBJS) $(HEADER)
 	make -C $(LIBFTDIR_PATH)
 	make -C $(MINILIBX)
-	gcc -o2 $(OBJS) $(LIBFTDIR_PATH)libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	gcc -o2 -MD $(OBJS) $(LIBFTDIR_PATH)libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 play: all $(MAPS)
 
 $(MAPS):

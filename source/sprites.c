@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sprites.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lsherry <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/29 18:13:20 by lsherry           #+#    #+#             */
+/*   Updated: 2022/04/29 18:13:21 by lsherry          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/game.h"
 
 t_list	*load_death_l(t_game *game)
@@ -16,7 +28,7 @@ t_list	*load_death_l(t_game *game)
 	ft_lstadd_back(&death, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id, \
 		"resources/sprites/pl/death_l/pl4.xpm", &size, &size)));
 	game->sprites.death_l = death;
-    game->sprites.death_st_l = death;
+	game->sprites.death_st_l = death;
 	return (death);
 }
 
@@ -36,7 +48,7 @@ t_list	*load_death_r(t_game *game)
 	ft_lstadd_back(&death, ft_lstnew(mlx_xpm_file_to_image(game->mlx_id, \
 		"resources/sprites/pl/death_r/pl4.xpm", &size, &size)));
 	game->sprites.death_r = death;
-    game->sprites.death_st_r = death;
+	game->sprites.death_st_r = death;
 	return (death);
 }
 
@@ -81,8 +93,6 @@ t_sprites	init_sprites(t_game *game)
 		"resources/sprites/wall.xpm", &size, &size);
 	game->sprites.exit = mlx_xpm_file_to_image(game->mlx_id, \
 		"resources/sprites/closed_door.xpm", &size, &size);
-//	game->sprites.hero = mlx_xpm_file_to_image(game->mlx_id, \
-//		"resources/sprites/pl/pl1.xpm", &size, &size);
 	game->sprites.coin = mlx_xpm_file_to_image(game->mlx_id, \
 		"resources/sprites/coin.xpm", &size, &size);
 	game->sprites.logo = mlx_xpm_file_to_image(game->mlx_id, \
