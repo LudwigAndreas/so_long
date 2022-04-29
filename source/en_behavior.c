@@ -14,13 +14,13 @@
 
 int	ft_check_legal(t_entity *en)
 {
-	if (en->dir == N && en->legal.N && !en->legal.E && !en->legal.W)
+	if (en->dir == N && en->legal.n && !en->legal.e && !en->legal.w)
 		return (N);
-	if (en->dir == S && en->legal.S && !en->legal.E && !en->legal.W)
+	if (en->dir == S && en->legal.s && !en->legal.e && !en->legal.w)
 		return (S);
-	if (en->dir == W && en->legal.W && !en->legal.N && !en->legal.S)
+	if (en->dir == W && en->legal.w && !en->legal.n && !en->legal.s)
 		return (W);
-	if (en->dir == E && en->legal.E && !en->legal.N && !en->legal.S)
+	if (en->dir == E && en->legal.e && !en->legal.n && !en->legal.s)
 		return (E);
 	return (0);
 }
@@ -60,22 +60,22 @@ int	ft_get_en_dir(t_game *game, t_entity *en)
 	t_entity	*hero;
 
 	hero = game->heroes;
-	if (en->legal.E)
+	if (en->legal.e)
 		posi[0] = evclid(ft_new_pos(en->pos.x + 1, en->pos.y),
 				ft_new_pos(hero->pos.x, hero->pos.y));
 	else
 		posi[0] = -1;
-	if (en->legal.W)
+	if (en->legal.w)
 		posi[1] = evclid(ft_new_pos(en->pos.x - 1, en->pos.y),
 				ft_new_pos(hero->pos.x, hero->pos.y));
 	else
 		posi[1] = -1;
-	if (en->legal.S)
+	if (en->legal.s)
 		posi[2] = evclid(ft_new_pos(en->pos.x, en->pos.y + 1),
 				ft_new_pos(hero->pos.x, hero->pos.y));
 	else
 		posi[2] = -1;
-	if (en->legal.N)
+	if (en->legal.n)
 		posi[3] = evclid(ft_new_pos(en->pos.x, en->pos.y - 1),
 				ft_new_pos(hero->pos.x, hero->pos.y));
 	else

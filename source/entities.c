@@ -110,27 +110,27 @@ void	ft_update_legal_act(t_game *game, t_entity *en)
 	s = ft_substr("1E", 0, 2);
 	if (en == game->heroes)
 		s = ft_substr("1E", 0, 1);
-	en->legal.N = (!ft_strchr(s, game->map[en->pos.y - 1][en->pos.x]));
-	en->legal.S = (!ft_strchr(s, game->map[en->pos.y + 1][en->pos.x]));
-	en->legal.E = (!ft_strchr(s, game->map[en->pos.y][en->pos.x + 1]));
-	en->legal.W = (!ft_strchr(s, game->map[en->pos.y][en->pos.x - 1]));
+	en->legal.n = (!ft_strchr(s, game->map[en->pos.y - 1][en->pos.x]));
+	en->legal.s = (!ft_strchr(s, game->map[en->pos.y + 1][en->pos.x]));
+	en->legal.e = (!ft_strchr(s, game->map[en->pos.y][en->pos.x + 1]));
+	en->legal.w = (!ft_strchr(s, game->map[en->pos.y][en->pos.x - 1]));
 	if (game->heroes == en)
 		return ;
-	en->legal.N *= ft_is_there_en(game, en->pos.x, en->pos.y - 1);
-	en->legal.S *= ft_is_there_en(game, en->pos.x, en->pos.y + 1);
-	en->legal.E *= ft_is_there_en(game, en->pos.x + 1, en->pos.y);
-	en->legal.W *= ft_is_there_en(game, en->pos.x - 1, en->pos.y);
+	en->legal.n *= ft_is_there_en(game, en->pos.x, en->pos.y - 1);
+	en->legal.s *= ft_is_there_en(game, en->pos.x, en->pos.y + 1);
+	en->legal.e *= ft_is_there_en(game, en->pos.x + 1, en->pos.y);
+	en->legal.w *= ft_is_there_en(game, en->pos.x - 1, en->pos.y);
 }
 
 int	ft_is_mov_legal(t_entity *entity, int dir)
 {
-	if (dir == N && entity->legal.N)
+	if (dir == N && entity->legal.n)
 		return (1);
-	if (dir == W && entity->legal.W)
+	if (dir == W && entity->legal.w)
 		return (1);
-	if (dir == S && entity->legal.S)
+	if (dir == S && entity->legal.s)
 		return (1);
-	if (dir == E && entity->legal.E)
+	if (dir == E && entity->legal.e)
 		return (1);
 	if (dir == ST)
 		return (1);
