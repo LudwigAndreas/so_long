@@ -106,14 +106,17 @@ int	ft_is_there_en(t_game *game, int x, int y)
 void	ft_update_legal_act(t_game *game, t_entity *en)
 {
 	char	*s;
+	int		i;
 
-	s = ft_substr("1E", 0, 2);
+	i = 2;
 	if (en == game->heroes)
-		s = ft_substr("1E", 0, 1);
+		i = 1;
+	s = ft_substr("1E", 0, i);
 	en->legal.n = (!ft_strchr(s, game->map[en->pos.y - 1][en->pos.x]));
 	en->legal.s = (!ft_strchr(s, game->map[en->pos.y + 1][en->pos.x]));
 	en->legal.e = (!ft_strchr(s, game->map[en->pos.y][en->pos.x + 1]));
 	en->legal.w = (!ft_strchr(s, game->map[en->pos.y][en->pos.x - 1]));
+	free(s);
 	if (game->heroes == en)
 		return ;
 	en->legal.n *= ft_is_there_en(game, en->pos.x, en->pos.y - 1);
