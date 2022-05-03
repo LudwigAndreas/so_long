@@ -11,28 +11,147 @@
   <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
       <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+      <configuration PROFILE_NAME="Debug-Coverage" ENABLED="true" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DCMAKE_CXX_FLAGS=&quot;-fprofile-instr-generate -fcoverage-mapping&quot; -DCMAKE_C_FLAGS=&quot;-fprofile-instr-generate -fcoverage-mapping&quot;" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7540ccd2-9ba6-4c54-9029-cbba9d0f7f70" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/libft/ft_atoi.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_bzero.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_calloc.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_isalnum.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_isalpha.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_isascii.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_isdigit.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_isprint.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_itoa.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_lstadd_back_bonus.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_lstadd_front_bonus.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_lstclear_bonus.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_lstdelone_bonus.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_lstiter_bonus.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_lstlast_bonus.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_lstmap_bonus.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_lstnew_bonus.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_lstsize_bonus.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_memccpy.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_memchr.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_memcmp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_memcpy.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_memmove.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_memset.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_putchar_fd.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_putendl_fd.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_putnbr_fd.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_putstr_fd.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_split.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_strchr.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_strdup.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_striteri.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_strjoin.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_strlcat.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_strlcpy.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_strlen.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_strmapi.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_strncmp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_strnstr.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_strrchr.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_strtrim.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_substr.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_tolower.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/ft_toupper.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libft/libft.a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/en_behavior.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/en_behavior.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/enemies.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/enemies.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/entities.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/entities.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/ft_go_dir.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/ft_go_dir.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/get_next_line.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/get_next_line.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/get_next_line_utils.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/get_next_line_utils.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/init_game.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/init_game.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/load_dir.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/load_dir.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/main.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/main.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/map_checker.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/map_checker.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/map_validator.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/map_validator.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/play.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/play.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/redraw.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/redraw.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/score.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/score.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/sprites.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/sprites.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/utils.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/objects/so_long_objs/utils.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-3aafe83d3ad383719936.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-04-29T19-05-18-0318.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/so_long" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/so_long" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/game.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/game.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/objects/so_long_objs/get_next_line.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/so_long_objs/get_next_line.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/objects/so_long_objs/init_game.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/so_long_objs/init_game.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/objects/so_long_objs/utils.o" beforeDir="false" afterPath="$PROJECT_DIR$/objects/so_long_objs/utils.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/so_long" beforeDir="false" afterPath="$PROJECT_DIR$/so_long" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/get_next_line.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/get_next_line.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/cache-v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/codemodel-v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/toolchains-v1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cache-v2-0299e6f0b913415523f0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-8af3cb8c2b1e242ef8b1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-8cadbfdfaecbd1f9726e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-05-03T06-47-49-0828.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-so_long-Debug-63efaf9e5c051d839593.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-38e7ea8fb0b22a89e16e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.21.1/CompilerIdC/CMakeCCompilerId.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeError.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/en_behavior.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/enemies.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/entities.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/ft_go_dir.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/get_next_line.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/get_next_line_utils.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/init_game.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/load_dir.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/main.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/map_checker.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/map_validator.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/play.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/redraw.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/score.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/sprites.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/so_long.dir/source/utils.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/so_long" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/so_long" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/so_long.dSYM/Contents/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/so_long.dSYM/Contents/Resources/DWARF/so_long" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/get_next_line.h" beforeDir="false" afterPath="$PROJECT_DIR$/includes/get_next_line.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/install.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmlx.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmlx.dylib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/source/init_game.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/init_game.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/map_checker.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/map_checker.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/map_validator.c" beforeDir="false" afterPath="$PROJECT_DIR$/source/map_validator.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/val.sh" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,12 +174,15 @@
     <option name="minorVersion" value="3.2" />
   </component>
   <component name="ProjectId" id="289Lvg4AkPo9ZqPS3DQXJaZGWR8" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
@@ -75,13 +197,13 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
+    <property name="settings.editor.selected.configurable" value="dynamic.analysis.tools.valgrind" />
     <property name="structure.view.defaults.are.configured" value="true" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="so_long" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="resources/maps/valid_maps/full1_map.ber" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$ContentRoot$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="so_long" TARGET_NAME="so_long" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="so_long" RUN_TARGET_NAME="so_long">
@@ -106,6 +228,7 @@
       <workItem from="1651244085828" duration="3000" />
       <workItem from="1651244409262" duration="1537000" />
       <workItem from="1651258660276" duration="624000" />
+      <workItem from="1651579090884" duration="2356000" />
     </task>
     <servers />
   </component>
@@ -132,5 +255,22 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/source/main.c</url>
+          <line>21</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="../../../../42Course/so_long/cmake-build-debug-coverage" NAME="so_long Coverage Results" MODIFIED="1651579600996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="gcov/llvm" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

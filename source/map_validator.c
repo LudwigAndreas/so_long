@@ -74,11 +74,11 @@ void	param_validator(t_params *params, char *out)
 {
 	if (params->width == 0 || params->length == 0)
 		map_error("Map is empty", out, NULL);
-	if (!params->exits)
+	else if (!params->exits)
 		map_error("Invalid number of exits", out, NULL);
-	if (params->players != 1)
+	else if (params->players != 1)
 		map_error("Invalid number of players", out, NULL);
-	if (!params->coins)
+	else if (!params->coins)
 		map_error("Invalid number of coins", out, NULL);
 	check_rect(NULL, out, params);
 }

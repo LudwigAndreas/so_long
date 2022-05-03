@@ -28,9 +28,9 @@ t_params	ft_null_params(void)
 void	map_error(char *str, char *to_free1, char *to_free_2)
 {
 	ft_putendl_fd(str, 2);
-	if (to_free1 != NULL)
+	if (to_free1)
 		free(to_free1);
-	if (to_free_2 != NULL)
+	if (to_free_2)
 		free(to_free_2);
 	exit(0);
 }
@@ -61,8 +61,10 @@ char	*map_to_line(int fd, t_params *params)
 		line = get_next_line(fd);
 		if (!line || !out)
 			break ;
-		if (line[0] == '\n')
-			continue ;
+		if (line[0] == '\n') {
+			free(line);
+			continue;
+		}
 		line_validator(line, params, out);
 		if (params->length == 1)
 			check_rect(line, out, params);

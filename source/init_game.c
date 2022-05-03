@@ -12,9 +12,7 @@
 
 #include "../includes/map.h"
 #include "../includes/game.h"
-#include <stdio.h>
 #include <string.h>
-#include <errno.h>
 
 /* Действия при нажатиях на кнопку */
 int	key_hook(int key, t_game *game)
@@ -46,14 +44,14 @@ int	close_game(t_game *game)
 
 	free_sprites(game);
 	i = 0;
-	mlx_clear_window(game->mlx_id, game->window);
-	mlx_destroy_window(game->mlx_id, game->window);
 	while (game->map[i])
 	{
 		free(game->map[i]);
 		i++;
 	}
 	free(game->map);
+	mlx_clear_window(game->mlx_id, game->window);
+	mlx_destroy_window(game->mlx_id, game->window);
 	free(game);
 	exit(0);
 	return (0);

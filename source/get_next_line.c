@@ -62,7 +62,7 @@ char	*get_next_line(int fd)
 	static char		*rem;
 	int				rd;
 
-	rd = 1;
+//	rd = 1;
 	p_n = rem_checker(&rem, &str);
 	while (!p_n)
 	{
