@@ -31,7 +31,6 @@ void	ft_free_en_list(t_game *game)
 		temp = game->enemies;
 		game->enemies = game->enemies->next;
 		free(temp);
-		temp = NULL;
 	}
 }
 
@@ -41,15 +40,15 @@ void	ft_clear_mlx_anim(t_game *game, t_list *anim)
 	t_list	*temp;
 
 	i = 0;
-	while (i != 4)
+	while (i != 5)
 	{
-		temp = anim->next;
-		if (game)
-		{
-			mlx_destroy_image(game->mlx_id, anim->content);
-			free(anim);
-		}
-		anim = temp;
+		temp = anim;
+		if (anim)
+			anim = anim->next;
+		if (game && temp != NULL)
+			mlx_destroy_image(game->mlx_id, temp->content);
+		free(temp);
+		temp = NULL;
 		i++;
 	}
 }
@@ -77,23 +76,13 @@ void	free_entity(t_game *game )
 
 void	free_sprites(t_game *game)
 {
+	mlx_destroy_image(game->mlx_id, game->sprites.logo);
+	mlx_destroy_image(game->mlx_id, game->sprites.score);
+	mlx_destroy_image(game->mlx_id, game->sprites.wall);
+	mlx_destroy_image(game->mlx_id, game->sprites.exit);
+	mlx_destroy_image(game->mlx_id, game->sprites.open_ex);
 	mlx_destroy_image(game->mlx_id, game->sprites.empty);
 	mlx_destroy_image(game->mlx_id, game->sprites.coin);
-	mlx_destroy_image(game->mlx_id, game->sprites.exit);
-	mlx_destroy_image(game->mlx_id, game->sprites.wall);
-	mlx_destroy_image(game->mlx_id, game->sprites.score);
-	mlx_destroy_image(game->mlx_id, game->sprites.logo);
-	mlx_destroy_image(game->mlx_id, game->sprites.open_ex);
 	free_entity(game);
-	mlx_destroy_image(game->mlx_id, game->sprites.font.zero);
-	mlx_destroy_image(game->mlx_id, game->sprites.font.one);
-	mlx_destroy_image(game->mlx_id, game->sprites.font.two);
-	mlx_destroy_image(game->mlx_id, game->sprites.font.three);
-	mlx_destroy_image(game->mlx_id, game->sprites.font.four);
-	mlx_destroy_image(game->mlx_id, game->sprites.font.five);
-	mlx_destroy_image(game->mlx_id, game->sprites.font.six);
-	mlx_destroy_image(game->mlx_id, game->sprites.font.seven);
-	mlx_destroy_image(game->mlx_id, game->sprites.font.eight);
-	mlx_destroy_image(game->mlx_id, game->sprites.font.nine);
 	ft_free_en_list(game);
 }

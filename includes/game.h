@@ -151,8 +151,6 @@ typedef struct s_game
 
 /* Initialize game start settings */
 void		init_game(t_params *params, char **map);
-/* Duplicate matrix 2 * 2 */
-char		**ft_duplicate_matrix(char **map);
 /* Initialize sprites xmp */
 t_sprites	init_sprites(t_game *game);
 /* Update frame or part of frame */
