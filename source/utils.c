@@ -25,13 +25,13 @@ void	ft_free_en_list(t_game *game)
 {
 	t_entity	*temp;
 
-	free(game->heroes);
 	while (game->enemies)
 	{
 		temp = game->enemies;
 		game->enemies = game->enemies->next;
 		free(temp);
 	}
+	free(game->heroes);
 }
 
 void	ft_clear_mlx_anim(t_game *game, t_list *anim)
@@ -83,6 +83,5 @@ void	free_sprites(t_game *game)
 	mlx_destroy_image(game->mlx_id, game->sprites.open_ex);
 	mlx_destroy_image(game->mlx_id, game->sprites.empty);
 	mlx_destroy_image(game->mlx_id, game->sprites.coin);
-	free_entity(game);
-	ft_free_en_list(game);
+//	free_entity(game);
 }

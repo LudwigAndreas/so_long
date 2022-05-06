@@ -5,8 +5,6 @@ OFLAGS			:= -Wall -Wextra -Werror -o
 SRC_DIR			:= source/
 OBJ_DIR			:= objects/so_long_objs/
 SRCS_FILES		:=	map_checker.c\
-					get_next_line.c\
-					get_next_line_utils.c\
 					map_validator.c\
 					init_game.c\
 					main.c\
@@ -20,6 +18,7 @@ SRCS_FILES		:=	map_checker.c\
 					score.c\
 					enemies.c\
 					en_behavior.c
+
 OBJS_FILES		:= $(SRCS_FILES:.c=.o)
 SRCS			:= $(addprefix $(SRC_DIR), $(SRCS_FILES))
 OBJS			:= $(addprefix $(OBJ_DIR), $(OBJS_FILES))
@@ -42,16 +41,12 @@ objects:
 	mkdir -p $(OBJ_DIR)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	gcc -o2 -MD -Imlx $(CFLAGS) $< -o $@
+	gcc -o3 -MD -Imlx $(CFLAGS) $< -o $@
 
 $(NAME): $(OBJS) $(HEADER)
-	make -C $(LIBFTDIR_PATH)
-	make -C $(MINILIBX)
-	gcc -o2 -MD $(OBJS) $(LIBFTDIR_PATH)libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-play: all $(MAPS)
-
-$(MAPS):
-	$(EXEC) $?
+	make -o3 -C $(LIBFTDIR_PATH)
+	make -o3 -C $(MINILIBX)
+	gcc -o3 -MD $(OBJS) $(LIBFTDIR_PATH)libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 clean:
 	make clean -C $(LIBFTDIR_PATH)

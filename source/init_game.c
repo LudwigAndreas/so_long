@@ -43,6 +43,7 @@ int	close_game(t_game *game)
 	int	i;
 
 	free_sprites(game);
+//	ft_free_en_list(game);
 	i = 0;
 	while (game->map[i])
 	{
@@ -52,7 +53,6 @@ int	close_game(t_game *game)
 	free(game->map);
 	mlx_clear_window(game->mlx_id, game->window);
 	mlx_destroy_window(game->mlx_id, game->window);
-	free(game);
 	exit(0);
 	return (0);
 }
@@ -77,27 +77,26 @@ void	ft_new_game(t_game *game)
 /* Функция запускает MLX */
 void	init_game(t_params *params, char **map)
 {
-	t_game	*game;
+	t_game	game;
 
-	game = (t_game *) malloc(sizeof(t_game));
-	game->mlx_id = mlx_init();
-	if (!game->mlx_id)
+	game.mlx_id = mlx_init();
+	if (!game.mlx_id)
 		return ;
-	game->params = params;
-	game->length = params->length;
-	game->width = params->width;
-	game->all_coins = params->coins;
-	game->map = map;
-	game->window = mlx_new_window(game->mlx_id, params->width * SIZE + SCORE_W,
+	game.params = params;
+	game.length = params->length;
+	game.width = params->width;
+	game.all_coins = params->coins;
+	game.map = map;
+	game.window = mlx_new_window(game.mlx_id, params->width * SIZE + SCORE_W,
 			params->length * SIZE + LOGO_L, "SO_LONG");
-	game->frames = 1;
-	game->moves = 0;
-	game->width = params->width * SIZE;
-	game->length = params->length * SIZE + LOGO_L;
-	game->sprites = init_sprites(game);
-	game->heroes = NULL;
-	game->enemies = NULL;
-	game->all_coins = params->coins;
-	ft_add_entities(game);
-	ft_new_game(game);
+	game.frames = 1;
+	game.moves = 0;
+	game.width = params->width * SIZE;
+	game.length = params->length * SIZE + LOGO_L;
+	game.sprites = init_sprites(&game);
+	game.heroes = NULL;
+	game.enemies = NULL;
+	game.all_coins = params->coins;
+	ft_add_entities(&game);
+	ft_new_game(&game);
 }

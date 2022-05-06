@@ -67,8 +67,8 @@ char	*map_to_line(int fd, t_params *params)
 		}
 		line_validator(line, params, out);
 		if (params->length == 1)
-			check_rect(line, out, params);
-		out = ft_gnl_strjoin(out, line);
+			check_walls(line, out, params);
+		out = ft_strjoin_gnl(out, line);
 		free(line);
 	}
 	param_validator(params, out);

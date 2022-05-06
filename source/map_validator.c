@@ -35,13 +35,13 @@ void	line_validator(char *line, t_params *params, char *out)
 	if (line[0] != '1' && line[ft_strlen(line) - 1] != '1')
 		map_error("Map must be surrounded by walls", line, out);
 	if (params->width != 0 && params->width != (int ) ft_strlen(line) - 1)
-		map_error("Map must be rectangular", line, out);
+		map_error("Map must be rectangular or there is no \\n in the end of file", line, out);
 	params->width = (int ) ft_strlen(line) - 1;
 	if (i != (int ) ft_strlen(line))
 		map_error("Invalid symbol(s) in map", line, out);
 }
 
-void	check_rect(char *line, char *out, t_params *params)
+void	check_walls(char *line, char *out, t_params *params)
 {
 	int	i;
 	int	len;
@@ -80,5 +80,5 @@ void	param_validator(t_params *params, char *out)
 		map_error("Invalid number of players", out, NULL);
 	else if (!params->coins)
 		map_error("Invalid number of coins", out, NULL);
-	check_rect(NULL, out, params);
+	check_walls(NULL, out, params);
 }

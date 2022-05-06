@@ -23,11 +23,11 @@ static int	ft_escspaces(const char *str)
 	return (i);
 }
 
-long int	ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	int			i;
-	long int	nbr;
-	int			z;
+	int	i;
+	int	nbr;
+	int	z;
 
 	str = (char *) str;
 	z = 1;

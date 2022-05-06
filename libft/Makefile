@@ -25,6 +25,8 @@ SRCS		:= ft_isalnum.c\
 				ft_strdup.c\
 				ft_strlcat.c\
 				ft_strlcpy.c\
+				ft_strndup.c\
+				ft_find_substr.c\
 			ft_substr.c\
 			ft_strjoin.c\
 			ft_strtrim.c\
@@ -35,17 +37,20 @@ SRCS		:= ft_isalnum.c\
 			ft_putchar_fd.c\
 			ft_putstr_fd.c\
 			ft_putendl_fd.c\
-			ft_putnbr_fd.c
-
-BONUS_SRCS	:= 	ft_lstnew_bonus.c\
-				ft_lstadd_front_bonus.c\
-				ft_lstlast_bonus.c\
-				ft_lstsize_bonus.c\
-				ft_lstadd_back_bonus.c\
-				ft_lstdelone_bonus.c\
-				ft_lstclear_bonus.c\
-				ft_lstiter_bonus.c\
-				ft_lstmap_bonus.c
+			ft_putnbr_fd.c\
+			ft_lstnew_bonus.c\
+			ft_lstadd_front_bonus.c\
+			ft_lstlast_bonus.c\
+			ft_lstsize_bonus.c\
+			ft_lstadd_back_bonus.c\
+			ft_lstdelone_bonus.c\
+			ft_lstclear_bonus.c\
+			ft_lstiter_bonus.c\
+			ft_lstmap_bonus.c\
+				get_next_line.c\
+				get_next_line_utils.c\
+			ft_printf.c\
+			ft_print_tools.c
 
 BONUS_OBJS	:= $(BONUS_SRCS:.c=.o)
 OBJS		:= $(SRCS:.c=.o)
@@ -53,13 +58,13 @@ RM			:= rm -rf
 HEADER		:= libft.h
 .PHONY: all clean fclean re bonus
 
-%.o: %.c $(HEADER) $(SRCS)
+%.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) $< -o $@ -include $(HEADER)
 
-$(NAME): $(OBJS) $(HEADER) $(BONUS_OBJS)
-	ar rcs libft.a $(OBJS) $(BONUS_OBJS)
+$(NAME): $(OBJS) $(HEADER)
+	ar rcs $(NAME) $(OBJS)
 
-all: $(NAME) bonus
+all: $(NAME)
 
 bonus: $(BONUS_OBJS) $(OBJS) $(HEADER)
 	ar rcs libft.a $(OBJS) $(BONUS_OBJS)

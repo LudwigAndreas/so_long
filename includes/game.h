@@ -161,6 +161,7 @@ void		free_sprites(t_game *game);
 void		ft_render_map(t_game *game, int x, int y);
 /* Выход из игры с освобождением всей памяти */
 int			close_game(t_game *game);
+void	ft_free_en_list(t_game *game);
 /**/
 void		next_direct(t_game *game, int key);
 /* Определяет, можно ли пойти в конкретном направлении */

@@ -23,6 +23,7 @@ t_list	*ft_load_south(t_game *game, char *path, int mode)
 	size = SIZE;
 	run = NULL;
 	i = 1;
+	s = NULL;
 	name = ft_substr("down/1.xpm", 0, 10);
 	while (i != 6)
 	{
@@ -51,6 +52,7 @@ t_list	*ft_load_west(t_game *game, char *path, int mode)
 	size = SIZE;
 	run = NULL;
 	i = 1;
+	s = NULL;
 	name = ft_substr("left/1.xpm", 0, 10);
 	while (i != 6)
 	{
@@ -79,6 +81,7 @@ t_list	*ft_load_north(t_game *game, char *path, int mode)
 	size = SIZE;
 	run = NULL;
 	i = 1;
+	s = NULL;
 	name = ft_substr("up/1.xpm", 0, 8);
 	while (i != 6)
 	{
@@ -107,6 +110,7 @@ t_list	*ft_load_east(t_game *game, char *path, int mode)
 	size = SIZE;
 	run = NULL;
 	i = 1;
+	s = NULL;
 	name = ft_substr("right/1.xpm", 0, 11);
 	while (i != 6)
 	{
@@ -126,7 +130,6 @@ t_list	*ft_load_east(t_game *game, char *path, int mode)
 
 void	ft_load_hero(t_game *game)
 {
-	game->heroes->sprite.st = ft_lstnew(game->sprites.hero);
 	game->heroes->sprite.left = ft_load_west(game, "resources/sprites/pl/", 1);
 	game->heroes->sprite.st_left = game->heroes->sprite.left;
 	game->heroes->sprite.right = ft_load_east(game, "resources/sprites/pl/", 1);
@@ -135,4 +138,5 @@ void	ft_load_hero(t_game *game)
 	game->heroes->sprite.st_up = game->heroes->sprite.up;
 	game->heroes->sprite.down = ft_load_south(game, "resources/sprites/pl/", 1);
 	game->heroes->sprite.st_down = game->heroes->sprite.down;
+	game->heroes->sprite.st = game->heroes->sprite.st_right;
 }
