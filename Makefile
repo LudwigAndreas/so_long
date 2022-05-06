@@ -36,12 +36,24 @@ objects:
 	mkdir -p $(OBJ_DIR)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	gcc -O2 -Imlx $(CFLAGS) $< -o $@
+	gcc -Imlx $(CFLAGS) $< -o $@
 
 $(NAME): $(OBJS) $(HEADER)
 	make -C $(LIBFTDIR_PATH)
 	make -C $(MINILIBX)
-	gcc -O2 $(OBJS) $(LIBFTDIR_PATH)libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	gcc $(OBJS) $(LIBFTDIR_PATH)libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+
+play: all
+	./$(NAME) resources/maps/valid_maps/zero_map.ber
+	./$(NAME) resources/maps/valid_maps/line_map.ber
+	./$(NAME) resources/maps/valid_maps/minimal_map.ber
+	./$(NAME) resources/maps/valid_maps/big_map.ber
+	./$(NAME) resources/maps/valid_maps/pacman_mini_map.ber
+	./$(NAME) resources/maps/valid_maps/simple_valid_map.ber
+	./$(NAME) resources/maps/valid_maps/full_map.ber
+	./$(NAME) resources/maps/valid_maps/google_map.ber
+	./$(NAME) resources/maps/valid_maps/pacman_origin_map.ber
+	./$(NAME) resources/maps/valid_maps/full1_map.ber
 
 clean:
 	make clean -C $(LIBFTDIR_PATH)

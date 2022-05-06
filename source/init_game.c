@@ -60,16 +60,16 @@ int	close_game(t_game *game)
 void	ft_new_game(t_game *game)
 {
 	game->sprites.hero = NULL;
-	game->next_dir = 0;
 	ft_add_entities(game);
-	game->dead_ind = 0;
-	game->g_rate = GAME_RATE;
+	game->next_dir = 0;
 	ft_load_hero(game);
-	game->redraw = 1;
+	game->g_rate = GAME_RATE;
 	ft_load_enemies(game);
-	mlx_key_hook(game->window, key_hook, (void *) game);
-	mlx_hook(game->window, 17, 0, close_game, (void *)game);
+	game->dead_ind = 0;
+	game->redraw = 1;
 	mlx_loop_hook(game->mlx_id, ft_update, (void *)game);
+	mlx_hook(game->window, 17, 0, close_game, (void *)game);
+	mlx_hook(game->window, 2, 0, key_hook, (void *) game);
 	mlx_loop(game->mlx_id);
 }
 
