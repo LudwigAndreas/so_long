@@ -25,7 +25,7 @@ t_params	ft_null_params(void)
 	return (params);
 }
 
-void	map_error(char *str, char *to_free1, char *to_free_2)
+void	m_error(char *str, char *to_free1, char *to_free_2)
 {
 	ft_putendl_fd(str, 2);
 	if (to_free1)
@@ -40,12 +40,12 @@ char	**map_checker(int argc, char **argv, t_params *params)
 	int		fd;
 
 	if (argc != 2)
-		map_error("Invalid number of arguments", NULL, NULL);
+		m_error("Invalid number of arguments", NULL, NULL);
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
-		map_error("File not found", NULL, NULL);
+		m_error("File not found", NULL, NULL);
 	if (ft_strncmp(&argv[1][ft_strlen(argv[1]) - 4], ".ber", 4) != 0)
-		map_error("Invalid file extension", NULL, NULL);
+		m_error("Invalid file extension", NULL, NULL);
 	return (map_parser(fd, params));
 }
 
@@ -54,16 +54,17 @@ char	*map_to_line(int fd, t_params *params)
 	char	*line;
 	char	*out;
 
-	out = malloc(sizeof(char ));
+	out = (char *) malloc(sizeof(char ));
 	out[0] = 0;
 	while (1)
 	{
 		line = get_next_line(fd);
-		if (!line || !out)
+		if (!line)
 			break ;
-		if (line[0] == '\n') {
+		if (line[0] == '\n')
+		{
 			free(line);
-			continue;
+			continue ;
 		}
 		line_validator(line, params, out);
 		if (params->length == 1)

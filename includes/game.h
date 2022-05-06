@@ -28,7 +28,7 @@
 
 /* Variations of enemies:
  * (O)rc, (n)ecromancer, (s)lime, (K)ing_goblin, (G)host */
-# define ENEMIES "ONSKG"
+# define ENEMIES "ONKSG"
 
 enum e_keys
 {
@@ -214,5 +214,7 @@ void		ft_go_east(t_game *game, t_entity *entity);
 void		ft_go_north(t_game *game, t_entity *entity);
 /* Определяет, есть ли враг на координатах */
 int			ft_is_there_en(t_game *game, int x, int y);
+
+void	ft_door_checker(t_game *game, t_entity *entity, t_pos new);
 
 #endif

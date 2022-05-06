@@ -85,3 +85,23 @@ int	ft_update(t_game *game)
 	}
 	return (0);
 }
+
+void	ft_put_hero(t_game *game)
+{
+	t_entity	*hero;
+
+	hero = game->heroes;
+	mlx_put_image_to_window(game->mlx_id, game->window, game->sprites.empty,
+		hero->w_pos.x, hero->w_pos.y);
+	if (hero->dir == W)
+		ft_go_west(game, hero);
+	if (hero->dir == E)
+		ft_go_east(game, hero);
+	if (hero->dir == S)
+		ft_go_south(game, hero);
+	if (hero->dir == N)
+		ft_go_north(game, hero);
+	if (hero->dir == ST)
+		mlx_put_image_to_window(game->mlx_id, game->window,
+			hero->sprite.st->content, hero->w_pos.x, hero->w_pos.y);
+}

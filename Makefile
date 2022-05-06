@@ -17,7 +17,8 @@ SRCS_FILES		:=	map_checker.c\
 					load_dir.c\
 					score.c\
 					enemies.c\
-					en_behavior.c
+					en_behavior.c\
+					move.c
 
 OBJS_FILES		:= $(SRCS_FILES:.c=.o)
 SRCS			:= $(addprefix $(SRC_DIR), $(SRCS_FILES))
@@ -26,12 +27,6 @@ RM				:= rm -rf
 LIBFTDIR_PATH	:= libft/
 LIBFT			:= $(addprefix $(LIBFTDIR_PATH), libft.a)
 HEADER			:= includes/map.h includes/game.h
-MAP_DIR			:= resources/maps/
-MAPS_FILES		:= 	wrong_extension.txt\
-					empty_map.ber\
-					simple_valid_map.ber
-MAPS			:= $(addprefix $(MAP_DIR), $(MAPS_FILES))
-EXEC			:= $(addprefix ./, $(NAME))
 MINILIBX		:= mlx/
 LMLX			:= -lmlx -framework OpenGL -framework AppKit
 
@@ -41,12 +36,12 @@ objects:
 	mkdir -p $(OBJ_DIR)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	gcc -o3 -MD -Imlx $(CFLAGS) $< -o $@
+	gcc -O2 -Imlx $(CFLAGS) $< -o $@
 
 $(NAME): $(OBJS) $(HEADER)
-	make -o3 -C $(LIBFTDIR_PATH)
-	make -o3 -C $(MINILIBX)
-	gcc -o3 -MD $(OBJS) $(LIBFTDIR_PATH)libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	make -C $(LIBFTDIR_PATH)
+	make -C $(MINILIBX)
+	gcc -O2 $(OBJS) $(LIBFTDIR_PATH)libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 clean:
 	make clean -C $(LIBFTDIR_PATH)

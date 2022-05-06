@@ -12,33 +12,33 @@
 
 #include "../includes/map.h"
 
-void	line_validator(char *line, t_params *params, char *out)
+void	line_validator(char *l, t_params *params, char *out)
 {
 	int	i;
 
-	i = 0;
-	while (line[i])
+	i = -1;
+	while (l[++i])
 	{
-		if (line[i] == 'C')
+		if (l[i] == 'C')
 			params->coins++;
-		if (line[i] == 'E')
+		if (l[i] == 'E')
 			params->exits++;
-		if (line[i] == 'P')
+		if (l[i] == 'P')
 			params->players++;
-		if (line[i] == 'F')
+		if (l[i] == 'F')
 			params->foes++;
-		if (!ft_strchr("01CEPG\n", line[i]))
+		if (!ft_strchr("01CEPG\n", l[i]))
 			break ;
-		i++;
 	}
 	params->length++;
-	if (line[0] != '1' && line[ft_strlen(line) - 1] != '1')
-		map_error("Map must be surrounded by walls", line, out);
-	if (params->width != 0 && params->width != (int ) ft_strlen(line) - 1)
-		map_error("Map must be rectangular or there is no \\n in the end of file", line, out);
-	params->width = (int ) ft_strlen(line) - 1;
-	if (i != (int ) ft_strlen(line))
-		map_error("Invalid symbol(s) in map", line, out);
+	if (l[0] != '1' && l[ft_strlen(l) - 1] != '1')
+		m_error("Map must be surrounded by walls", l, out);
+	if (params->width != 0 && params->width != (int ) ft_strlen(l) - 1)
+		m_error("Map must be rectangular or there is no \\n in the end of file",
+			l, out);
+	params->width = (int ) ft_strlen(l) - 1;
+	if (i != (int ) ft_strlen(l))
+		m_error("Invalid symbol(s) in map", l, out);
 }
 
 void	check_walls(char *line, char *out, t_params *params)
@@ -53,7 +53,7 @@ void	check_walls(char *line, char *out, t_params *params)
 		while (i < len - 1)
 		{
 			if (line[i++] != '1')
-				map_error("Map must be surrounded by walls!", line, out);
+				m_error("Map must be surrounded by walls!", line, out);
 		}
 	}
 	else
@@ -64,7 +64,7 @@ void	check_walls(char *line, char *out, t_params *params)
 		while (len > 0)
 		{
 			if (out[i - len + 1] != '1')
-				map_error("Map must be surrounded by walls!", line, out);
+				m_error("Map must be surrounded by walls!", line, out);
 			len--;
 		}
 	}
@@ -73,12 +73,12 @@ void	check_walls(char *line, char *out, t_params *params)
 void	param_validator(t_params *params, char *out)
 {
 	if (params->width == 0 || params->length == 0)
-		map_error("Map is empty", out, NULL);
+		m_error("Map is empty", out, NULL);
 	else if (!params->exits)
-		map_error("Invalid number of exits", out, NULL);
+		m_error("Invalid number of exits", out, NULL);
 	else if (params->players != 1)
-		map_error("Invalid number of players", out, NULL);
+		m_error("Invalid number of players", out, NULL);
 	else if (!params->coins)
-		map_error("Invalid number of coins", out, NULL);
+		m_error("Invalid number of coins", out, NULL);
 	check_walls(NULL, out, params);
 }

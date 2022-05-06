@@ -43,7 +43,6 @@ int	close_game(t_game *game)
 	int	i;
 
 	free_sprites(game);
-//	ft_free_en_list(game);
 	i = 0;
 	while (game->map[i])
 	{
@@ -60,17 +59,17 @@ int	close_game(t_game *game)
 /*Функция инициирует игру*/
 void	ft_new_game(t_game *game)
 {
-	ft_load_hero(game);
 	game->sprites.hero = NULL;
 	game->next_dir = 0;
-	game->heroes->sprite.st = game->heroes->sprite.st_right;
+	ft_add_entities(game);
 	game->dead_ind = 0;
 	game->g_rate = GAME_RATE;
+	ft_load_hero(game);
 	game->redraw = 1;
 	ft_load_enemies(game);
-	mlx_loop_hook(game->mlx_id, ft_update, (void *)game);
-	mlx_hook(game->window, 17, 0, close_game, (void *)game);
 	mlx_key_hook(game->window, key_hook, (void *) game);
+	mlx_hook(game->window, 17, 0, close_game, (void *)game);
+	mlx_loop_hook(game->mlx_id, ft_update, (void *)game);
 	mlx_loop(game->mlx_id);
 }
 
@@ -97,6 +96,5 @@ void	init_game(t_params *params, char **map)
 	game.heroes = NULL;
 	game.enemies = NULL;
 	game.all_coins = params->coins;
-	ft_add_entities(&game);
 	ft_new_game(&game);
 }
