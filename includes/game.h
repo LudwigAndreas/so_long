@@ -161,7 +161,7 @@ void		free_sprites(t_game *game);
 void		ft_render_map(t_game *game, int x, int y);
 /* Выход из игры с освобождением всей памяти */
 int			close_game(t_game *game);
-void	ft_free_en_list(t_game *game);
+void		ft_free_en_list(t_game *game);
 /**/
 void		next_direct(t_game *game, int key);
 /* Определяет, можно ли пойти в конкретном направлении */
@@ -215,6 +215,6 @@ void		ft_go_north(t_game *game, t_entity *entity);
 /* Определяет, есть ли враг на координатах */
 int			ft_is_there_en(t_game *game, int x, int y);
 
-void	ft_door_checker(t_game *game, t_entity *entity, t_pos new);
+void		ft_door_checker(t_game *game, t_entity *entity, t_pos new);
 
 #endif

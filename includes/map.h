@@ -26,7 +26,6 @@ typedef struct s_params
 	int	exits;
 	int	players;
 	int	coins;
-	int	foes;
 }				t_params;
 
 char	**map_checker(int argc, char **argv, t_params *params);

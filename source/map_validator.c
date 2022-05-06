@@ -25,8 +25,6 @@ void	line_validator(char *l, t_params *params, char *out)
 			params->exits++;
 		if (l[i] == 'P')
 			params->players++;
-		if (l[i] == 'F')
-			params->foes++;
 		if (!ft_strchr("01CEPG\n", l[i]))
 			break ;
 	}

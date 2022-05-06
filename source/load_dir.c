@@ -134,9 +134,9 @@ void	ft_load_hero(t_game *game)
 	game->heroes->sprite.st_left = game->heroes->sprite.left;
 	game->heroes->sprite.right = ft_load_east(game, "resources/sprites/pl/", 1);
 	game->heroes->sprite.st_right = game->heroes->sprite.right;
+	game->heroes->sprite.st = game->heroes->sprite.st_right;
 	game->heroes->sprite.up = ft_load_north(game, "resources/sprites/pl/", 1);
 	game->heroes->sprite.st_up = game->heroes->sprite.up;
 	game->heroes->sprite.down = ft_load_south(game, "resources/sprites/pl/", 1);
 	game->heroes->sprite.st_down = game->heroes->sprite.down;
-	game->heroes->sprite.st = game->heroes->sprite.st_right;
 }

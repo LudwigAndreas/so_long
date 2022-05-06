@@ -28,7 +28,7 @@ LIBFTDIR_PATH	:= libft/
 LIBFT			:= $(addprefix $(LIBFTDIR_PATH), libft.a)
 HEADER			:= includes/map.h includes/game.h
 MINILIBX		:= mlx/
-LMLX			:= -lmlx -framework OpenGL -framework AppKit
+LMLX			:= -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 all: objects $(NAME)
 
@@ -41,7 +41,9 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 $(NAME): $(OBJS) $(HEADER)
 	make -C $(LIBFTDIR_PATH)
 	make -C $(MINILIBX)
+#	gcc $(OBJS) $(LIBFTDIR_PATH)libft.a -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 	gcc $(OBJS) $(LIBFTDIR_PATH)libft.a -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+
 
 play: all
 	./$(NAME) resources/maps/valid_maps/zero_map.ber

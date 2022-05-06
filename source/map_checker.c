@@ -17,7 +17,6 @@ t_params	ft_null_params(void)
 	t_params	params;
 
 	params.coins = 0;
-	params.foes = 0;
 	params.exits = 0;
 	params.length = 0;
 	params.players = 0;

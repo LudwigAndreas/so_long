@@ -42,6 +42,8 @@ int	close_game(t_game *game)
 {
 	int	i;
 
+	mlx_clear_window(game->mlx_id, game->window);
+	mlx_destroy_window(game->mlx_id, game->window);
 	free_sprites(game);
 	i = 0;
 	while (game->map[i])
@@ -50,8 +52,6 @@ int	close_game(t_game *game)
 		i++;
 	}
 	free(game->map);
-	mlx_clear_window(game->mlx_id, game->window);
-	mlx_destroy_window(game->mlx_id, game->window);
 	exit(0);
 	return (0);
 }
@@ -68,8 +68,8 @@ void	ft_new_game(t_game *game)
 	game->dead_ind = 0;
 	game->redraw = 1;
 	mlx_loop_hook(game->mlx_id, ft_update, (void *)game);
-	mlx_hook(game->window, 17, 0, close_game, (void *)game);
 	mlx_hook(game->window, 2, 0, key_hook, (void *) game);
+	mlx_hook(game->window, 17, 0, close_game, (void *)game);
 	mlx_loop(game->mlx_id);
 }
 
