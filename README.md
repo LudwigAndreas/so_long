@@ -90,7 +90,6 @@ This project was developed by:
 
 - [School 21](https://21-school.ru/) - Educational institution
 - [42](https://www.42.fr/) - Educational institution
-- [Minilibx](https://harm-smits.github.io/42docs/libs/minilibx) - Library
 
 ## License
 
